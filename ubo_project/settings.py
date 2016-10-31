@@ -119,4 +119,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#MEDIA_ROOT = '/Users/UD/ubo_env/ubo_project/uboapp/media/'
+
+ENV_PATH = os.path.abspath(os.path.dirname(__file__))
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uboapp/media/')
+
+
+MEDIA_URL = "media/"
+
+print('BASE_DIR:')
+print(BASE_DIR)
+print('ENV_PATH')
+print(ENV_PATH)
+print('MEDIA_ROOT')
+print(MEDIA_ROOT)

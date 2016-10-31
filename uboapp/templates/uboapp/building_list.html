@@ -1,6 +1,31 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>UBONYC</title>
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <script>
+        function overlay(imageasset) {
+        imageasset = '/media/' + imageasset;
+
+        var modalheight = window.innerHeight * 0.80;
+        var modalwidth = (modalheight-25)*3/2;
+
+        var modalcontent = "<img height='" + (modalheight-35) + "px' src='" + imageasset + "'>";
+
+        $("#dialog").html(modalcontent);
+        $("#dialog").dialog(
+        {width: modalwidth},
+        {height: modalheight}
+        );
+
+        };
+        </script>
+
         <style>
         html, body {
         height: 100%;
@@ -8,7 +33,7 @@
         padding: 0;
         font-size :10;
         font-family : arial;
-      }
+        }
 
 	 .center-div
 	 {
@@ -18,62 +43,104 @@
      right: 0;
      bottom: 0;
      left: 0;
-     width: 80%;
-     height: 80%;
-	 border-style:solid;
+     width: 90%;
+     height: 90%;
+	 }
+
+	  .map-div
+	 {
+	 position : relative;
+	 margin: 0px;
+	 float : bottom;
+     width: 100%;
+     height: 95%;
+     border-style:solid;
 	 border-width:thin;
 	 border-color:#000000;
 	 }
 
-    </style>
+	  .title-div
+	 {
+	 position : relative;
+	 margin: 0px;
+	 float : top;
+     width: 100%;
+     height: 5%;
+     text-align: center;
+	 }
+
+
+        </style>
     </head>
-    <body>
+    <div>
 
 
-      <div id="map" class="center-div"></div>
+      <div id="container" class="center-div">
+
+          <div id="title" class="title-div">
+              UBONYC
+              </div>
+
+      <div id="map" class="map-div">
+
+
 
 	<script>
+
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.720398, lng: 	-73.962235},
+          center: {lat: 40.720398, lng: 	-73.973944},
           zoom: 14
         });
 
+        var opened_window = new google.maps.InfoWindow({
+          content: "null"
+        });
+
+{% load static %}
+
 {% for building in buildings %}
-        var marker{{ building.streetnum }} = new google.maps.Marker({
+        var marker{{ building.id }} = new google.maps.Marker({
         position: {lat: {{ building.latitude }}, lng: {{ building.longitude }}},
           map: map
         });
-        alert("{{ building.streetname }} added");
 
-		var contentString{{ building.streetnum }} = '<div id="content">'+
+        var overlaycontent = "{{ building.image.image }}";
+
+		var contentString{{ building.id }} = '<div id="content" class="bubblecontent">'+
             '<div id="siteNotice">'+
+            '<p><h4>{{ building.streetnumber }} {{ building.streetname }}</h4></p>'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">{{ building.streetname }}</h1>'+
-            '<img height="32" width="40" src="map.jpg">'+
+            '<p><a onclick="overlay(\'' + '{{ building.image.image }}' + '\')" href="#"><img height="100px" src="/media/{{ building.image.image }}"></a></p>'+
+            '<p>RATING :<img width="80" src="/media/5stars.png"></p>'+
             '</div>';
 
 
-        var infowindow{{ building.streetnum }} = new google.maps.InfoWindow({
-          content: contentString{{ building.streetnum }}
+        var infowindow{{ building.id }}= new google.maps.InfoWindow({
+          content: contentString{{ building.id }}
         });
 
-        marker{{ building.streetnum }}.addListener('click', function() {
-          infowindow{{ building.streetnum }}.open(map, marker{{ building.streetnum }});
+        marker{{ building.id }}.addListener('click', function() {
+          if (opened_window.content != "null") { opened_window.close(); };
+          infowindow{{ building.id }}.open(map, marker{{ building.id }});
+          opened_window = infowindow{{ building.id }};
         });
 
 {% endfor %}
-
-
-
-
-
-
       }
     </script>
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq4WVROGdkNgIh3kjV1lPZe6u4v4LCZG8&callback=initMap"
-    async defer></script>
+	    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq4WVROGdkNgIh3kjV1lPZe6u4v4LCZG8&callback=initMap" async defer>
+
+        </script>
+
+        </div>
+
+        </div>
+
+        <div id="dialog" title="Image Gallery">
+            <p></p>
+        </div>
 
     </body>
 </html>
