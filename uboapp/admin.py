@@ -1,13 +1,6 @@
 from django.contrib import admin
-from .models import Building, ImgBuilding
+from .models import Building, ImgBuilding, Comment
 from django.utils.safestring import mark_safe
-
-
-#class ImageInLine(admin.TabularInline):
-#    model = ImgBuilding
-
-#class BuildingAdmin(ImageInLine):
-#    inlines = [ImageInLine, ]
 
 
 class ImgInline(admin.TabularInline):
@@ -26,11 +19,32 @@ class ImgInline(admin.TabularInline):
 class ImgBuildingInline(ImgInline):
     model = ImgBuilding
 
+######################################
+
+
+class ComsInline(admin.TabularInline):
+    extra = 0
+    max_num = 10
+    fields = ('comment',)
+    verbose_name = ("comment")
+    verbose_name_plural = ("comments")
+    readonly_fields = ('show_img',)
+    def show_img(self, obj):
+        return mark_safe(obj.comment)
+
+    show_img.short_description = "Comment"
+
+
+class CommentInline(ComsInline):
+    model = Comment
+
+
+######################################
+
 
 class BuildingAdmin(admin.ModelAdmin):
     list_display = ("streetname", "streetnumber", "zipcode")
     search_fields = ("streetname", "zipcode")
-    inlines = [ImgBuildingInline]
-
+    inlines = [ImgBuildingInline,CommentInline]
 
 admin.site.register(Building, BuildingAdmin)

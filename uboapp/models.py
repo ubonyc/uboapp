@@ -9,6 +9,7 @@ class Building(models.Model):
     zipcode = models.CharField(("Zipcode"),max_length=5, default=0)
     latitude = models.CharField(("Latitude"),max_length=10, default=0)
     longitude = models.CharField(("Longitude"),max_length=10, default=0)
+    yearbuilt = models.IntegerField(default=2000);
 
 
 
@@ -31,6 +32,14 @@ class Building(models.Model):
     def image(self):
         return self.images.first()
 
+    @property
+    def comments(self):
+        return self.comment_set.all()
+
+    @property
+    def comment(self):
+        return self.comments.first()
+
 def building_upload_to(instance, filename):
     filename = filename.lower()
     return 'hotel/%s/%s' % (instance.hotel.name, filename)
@@ -51,3 +60,20 @@ class ImgBuilding(models.Model):
 
     def __str__(self):
         return self.building.streetname
+
+
+class Comment(models.Model):
+    comment = models.CharField(("Comment"),max_length=200, default=0)
+    tri = models.IntegerField(default=0)
+    building = models.ForeignKey(Building)
+
+    def save(self, *args, **kwargs):
+        super(Comment, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = ("Comment")
+        verbose_name_plural = ("Comments")
+        ordering = ("tri",)
+
+    def __str__(self):
+        return self.building.comment.comment

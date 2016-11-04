@@ -4,74 +4,30 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>UGLY BUILDINGS</title>
+        <title>UBONYC</title>
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <link rel="stylesheet" href="{% static "/uboapp/css/blueimp-gallery.min.css" %}">
-        <link rel="stylesheet" href="{% static "/uboapp/css/style.css" %}">
 
         <script>
-        function overlay(buildingid) {
+        function overlay(imageasset) {
+        imageasset = '/media/' + imageasset;
 
         var modalheight = window.innerHeight * 0.80;
         var modalwidth = (modalheight-25)*3/2;
 
-        var modalcontent = buildingid;
+        var modalcontent = "<img height='" + (modalheight-35) + "px' src='" + imageasset + "'>";
 
-
-        {% for building in buildings %}
-
-        if ('{{ building.comment }}'!='None') {
-
-        var modalcontent{{ building.id }} = "";
-
-        {% for comment in building.comments %}
-
-            modalcontent{{ building.id }} = modalcontent{{ building.id }} + '<p>{{ comment.comment }}</p>';
-
-        {% endfor %}
-
-                $("#dialog").html(modalcontent{{ building.id }});
-                $("#dialog").dialog(
-                    {width: modalwidth},
-                    {height: modalheight}
-                );
-
+        $("#dialog").html(modalcontent);
+        $("#dialog").dialog(
+        {width: modalwidth},
+        {height: modalheight}
+        );
 
         };
-
-
-
-
-        {% endfor %}
-
-
-
-        };
-        </script>
-
-        <script>
-        function opengallery(test){
-
-            blueimp.Gallery(
-    [
-        {
-            data: {urls: ['media/' + test]}
-        },
-        {
-            data: {urls: ['media/111_Kent_2.jpeg']}
-        }
-    ],
-    {
-        urlProperty: 'data.urls[0]'
-    }
-);
-
-            }
-
         </script>
 
         <style>
@@ -83,17 +39,6 @@
         font-family : arial;
         }
 
-
-h5 {
-  line-height: 1.7;
-  margin: 0;
-  font-family : andale;
-}
-
-.img {
-  line-height: 100%;
-}
-
 	 .center-div
 	 {
      position: absolute;
@@ -102,8 +47,8 @@ h5 {
      right: 0;
      bottom: 0;
      left: 0;
-     width: 95%;
-     height: 95%;
+     width: 90%;
+     height: 90%;
 	 }
 
 	  .map-div
@@ -128,38 +73,16 @@ h5 {
      text-align: center;
 	 }
 
-	 .content
-	 {
-	 font-size :0.9em;
-        font-family : Trebuchet MS;
-        line-height: 50%;
-        padding: 0px;
-	 }
-
 
         </style>
     </head>
     <body>
 
-     <div id="dialog" title="Comments">
-            <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
-<div id="blueimp-gallery" class="blueimp-gallery">
-    <div class="slides"></div>
-    <h3 class="title"></h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <a class="play-pause"></a>
-    <ol class="indicator"></ol>
-</div>
-
-
-        </div>
 
       <div id="container" class="center-div">
 
           <div id="title" class="title-div">
-              UGLY BUILDINGS OF NEW YORK CITY
+              UBONYC
               </div>
 
       <div id="map" class="map-div">
@@ -171,7 +94,7 @@ h5 {
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 40.720398, lng: 	-73.973944},
-          zoom: 13
+          zoom: 14
         });
 
         var opened_window = new google.maps.InfoWindow({
@@ -186,15 +109,16 @@ h5 {
           map: map
         });
 
-		var contentString{{ building.id }} = '<div id="content" class="content">'+
+        var overlaycontent = "{{ building.image.image }}";
+
+		var contentString{{ building.id }} = '<div id="content" class="bubblecontent">'+
             '<div id="siteNotice">'+
-            '<h4>{{ building.streetnumber }} {{ building.streetname }}</h4>'+
+            '<p><h4>{{ building.streetnumber }} {{ building.streetname }}</h4></p>'+
             '</div>'+
-            '<a onclick="opengallery(\'' + '{{ building.image.image }}' + '\')" href="#"><img height="100px" src="media/{{ building.image.image }}" alt="Orange"></a>'+
-            '<h5>YEAR BUILT : {{ building.yearbuilt }}</h5>'+
-            '<h5>RATING :<img height="10" src="/media/5stars.png"></h5>'+
-            '<h5><a onclick="overlay(\'' + '{{ building.id }}' + '\')" href="#">COMMENTS</a></h5>'+
+            '<p><a onclick="overlay(\'' + '{{ building.image.image }}' + '\')" href="#"><img height="100px" src="/media/{{ building.image.image }}"></a></p>'+
+            '<p>RATING :<img width="80" src="/media/5stars.png"></p>'+
             '</div>';
+
 
         var infowindow{{ building.id }}= new google.maps.InfoWindow({
           content: contentString{{ building.id }}
@@ -216,13 +140,47 @@ h5 {
 
         </div>
 
+        </div>
 
-
-        <script src="{% static "/uboapp/js/blueimp-gallery.min.js"%}"></script>
+        <div id="dialog" title="Image Gallery">
+            <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
 
 
         </div>
 
+        <div id="links">
+    <a href="media/34_Berry_1.jpeg" title="Banana">
+        <img src="media/34_Berry_1.jpeg" alt="Banana">
+    </a>
+    <a href="media/80metro.jpg" title="Apple">
+        <img src="media/80metro.jpg" alt="Apple">
+    </a>
+    <a href="media/111_Kent_1.jpeg" title="Orange">
+        <img src="media/111_Kent_1.jpeg" alt="Orange">
+    </a>
+</div>
+
+        <script src="{% static "/uboapp/js/blueimp-gallery.min.js"%}"></script>
+
+        <script>
+        document.getElementById('links').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+        };
+        </script>
 
     </body>
 </html>
