@@ -10,6 +10,9 @@ class Building(models.Model):
     latitude = models.CharField(("Latitude"),max_length=10, default=0)
     longitude = models.CharField(("Longitude"),max_length=10, default=0)
     yearbuilt = models.IntegerField(default=2000);
+    stories = models.IntegerField(default=10);
+    units = models.IntegerField(default=50);
+    height = models.IntegerField(default=50);
 
 
 
