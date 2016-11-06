@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'uboapp',
-    'star_ratings',
 ]
 
 MIDDLEWARE = [

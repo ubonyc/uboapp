@@ -24,7 +24,7 @@
         if ('{{ building.comment }}'!='None') {
         var modalcontent{{ building.id }} = "";
         {% for comment in building.comments %}
-            modalcontent{{ building.id }} = modalcontent{{ building.id }} + '<p>{{ comment.comment }}</p>';
+            modalcontent{{ building.id }} = modalcontent{{ building.id }} + '<div id="comment">{{ comment.comment }}</div>';
         {% endfor %}
         };
                 $("#dialog").html(modalcontent{{ building.id }});
@@ -38,7 +38,6 @@
 
         <script>
         function opengallery(test){
-
         blueimp.Gallery(
             [
                 {
@@ -52,7 +51,6 @@
                 urlProperty: 'data.urls[0]'
             }
         );
-
         }
 
         </script>
