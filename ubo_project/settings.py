@@ -120,8 +120,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#MEDIA_ROOT = '/Users/UD/ubo_env/ubo_project/uboapp/media/'
-
 ENV_PATH = os.path.abspath(os.path.dirname(__file__))
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uboapp/media/')
 
