@@ -1,0 +1,159 @@
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>UGLY BUILDINGS</title>
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <link rel="stylesheet" href="{% static "/uboapp/css/blueimp-gallery.min.css" %}">
+        <link rel="stylesheet" href="{% static "/uboapp/css/style.css" %}">
+
+        <script>
+        function overlay(buildingid) {
+
+        var modalheight = window.innerHeight * 0.80;
+        var modalwidth = (modalheight-25)*3/2;
+        var modalcontent = buildingid;
+        {% for building in buildings %}
+
+        if ('{{ building.comment }}'!='None') {
+        var modalcontent{{ building.id }} = "";
+        {% for comment in building.comments %}
+            modalcontent{{ building.id }} = modalcontent{{ building.id }} + '<div class="outer"><p>{{ comment.comment }}</p></div>';
+        {% endfor %}
+        };
+                $("#dialog").html(modalcontent{{ building.id }});
+                $("#dialog").dialog(
+                    {width: modalwidth},
+                    {height: modalheight}
+                );
+        {% endfor %}
+        };
+        </script>
+
+        <script>
+        function opengallery(test){
+        blueimp.Gallery(
+            [
+                {
+                    data: {urls: ['media/' + test]}
+                },
+                {
+                    data: {urls: ['media/111_Kent_2.jpeg']}
+                }
+            ],
+            {
+                urlProperty: 'data.urls[0]'
+            }
+        );
+        }
+
+        </script>
+
+        <style>
+        html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-size :10;
+        font-family : arial;
+        }
+
+        h5 {
+        line-height: 1.7;
+        margin: 0;
+        font-family : andale;
+        }
+
+         </style>
+    </head>
+    <body>
+
+    <div id="dialog" title="Comments"></div>
+        <div id="container" class="center-div">
+            <div id="title" class="title-div">
+              UGLY BUILDINGS OF NEW YORK CITY
+            </div>
+
+            <div id="map" class="map-div">
+
+                <script>
+
+                    function initMap() {
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                      center: {lat: 40.720398, lng: 	-73.973944},
+                      zoom: 13
+                    });
+
+                    var opened_window = new google.maps.InfoWindow({
+                      content: "null"
+                    });
+
+                    {% for building in buildings %}
+                            var marker{{ building.id }} = new google.maps.Marker({
+                            position: {lat: {{ building.latitude }}, lng: {{ building.longitude }}},
+                              map: map
+                            });
+
+                            var contentString{{ building.id }} = '<div id="content" class="content">'+
+                                '<div id="siteNotice">'+
+                                '<h4>{{ building.streetnumber }} {{ building.streetname }}</h4>'+
+                                '</div>'+
+                                '<a onclick="opengallery(\'' + '{{ building.image.image }}' + '\')" href="#"><img height="100px" src="media/{{ building.image.image }}" alt="Orange"></a>'+
+                                '<h5>YEAR BUILT : {{ building.yearbuilt }}</h5>'+
+                                '<h5>UBO RATING :'+
+                                '<img height="15" src="{% static "/uboapp/star_full.jpg"%}">'+
+                                '<img height="15" src="{% static "/uboapp/star_full.jpg"%}">'+
+                                '<img height="15" src="{% static "/uboapp/star_full.jpg"%}">'+
+                                '<img height="15" src="{% static "/uboapp/star_full.jpg"%}">'+
+                                '<img height="15" src="{% static "/uboapp/star_empty.jpg"%}"></h5>'+
+                                '<h5><a onclick="overlay(\'' + '{{ building.id }}' + '\')" href="#">COMMENTS</a></h5>'+
+                                '</div>';
+
+                            var infowindow{{ building.id }}= new google.maps.InfoWindow({
+                              content: contentString{{ building.id }}
+                            });
+
+                            marker{{ building.id }}.addListener('click', function() {
+                              if (opened_window.content != "null") { opened_window.close(); };
+                              infowindow{{ building.id }}.open(map, marker{{ building.id }});
+                              opened_window = infowindow{{ building.id }};
+                            });
+                    {% endfor %}
+                    }
+                </script>
+	            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq4WVROGdkNgIh3kjV1lPZe6u4v4LCZG8&callback=initMap" async defer></script>
+            </div>
+        </div>
+
+    <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+    <div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    </div>
+
+    <script src="{% static "/uboapp/js/blueimp-gallery.min.js"%}"></script>
+
+    <script>
+    document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+    };
+    </script>
+
+    </body>
+</html>

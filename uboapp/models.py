@@ -13,7 +13,11 @@ class Building(models.Model):
     stories = models.IntegerField(default=10);
     units = models.IntegerField(default=50);
     height = models.IntegerField(default=50);
-
+    one = models.IntegerField(default=0);
+    two = models.IntegerField(default=0);
+    three = models.IntegerField(default=0);
+    four = models.IntegerField(default=0);
+    five = models.IntegerField(default=0);
 
 
     def save(self, *args, **kwargs):

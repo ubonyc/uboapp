@@ -2,58 +2,9 @@
 
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>UGLY BUILDINGS</title>
+        <title>UBONYC</title>
 
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-        <link rel="stylesheet" href="{% static "/uboapp/css/blueimp-gallery.min.css" %}">
         <link rel="stylesheet" href="{% static "/uboapp/css/style.css" %}">
-
-        <script>
-        function overlay(buildingid) {
-
-        var modalheight = window.innerHeight * 0.80;
-        var modalwidth = (modalheight-25)*3/2;
-        var modalcontent = buildingid;
-        {% for building in buildings %}
-
-        if ('{{ building.comment }}'!='None') {
-        var modalcontent{{ building.id }} = "";
-        {% for comment in building.comments %}
-            modalcontent{{ building.id }} = modalcontent{{ building.id }} + '<div id="comment">{{ comment.comment }}</div>';
-        {% endfor %}
-        };
-                $("#dialog").html(modalcontent{{ building.id }});
-                $("#dialog").dialog(
-                    {width: modalwidth},
-                    {height: modalheight}
-                );
-        {% endfor %}
-        };
-        </script>
-
-        <script>
-        function opengallery(test){
-        blueimp.Gallery(
-            [
-                {
-                    data: {urls: ['media/' + test]}
-                },
-                {
-                    data: {urls: ['media/111_Kent_2.jpeg']}
-                }
-            ],
-            {
-                urlProperty: 'data.urls[0]'
-            }
-        );
-        }
-
-        </script>
 
         <style>
         html, body {
@@ -62,81 +13,150 @@
         padding: 0;
         font-size :10;
         font-family : arial;
-        }
+      }
 
-
-        h5 {
-          line-height: 1.7;
-          margin: 0;
-          font-family : andale;
-        }
-
-        .img {
-          line-height: 100%;
-        }
-
-         .center-div
-         {
-         position: absolute;
-         margin: auto;
-         top: 0;
-         right: 0;
-         bottom: 0;
-         left: 0;
-         width: 95%;
-         height: 95%;
-         }
-
-          .map-div
-         {
-         position : relative;
-         margin: 0px;
-         float : bottom;
-         width: 100%;
-         height: 95%;
-         border-style:solid;
-         border-width:thin;
-         border-color:#000000;
-         }
-
-          .title-div
-         {
-         position : relative;
-         margin: 0px;
-         float : top;
-         width: 100%;
-         height: 5%;
-         text-align: center;
-         }
-
-         .content
-         {
-         font-size :0.9em;
-            font-family : Trebuchet MS;
-            line-height: 50%;
-            padding: 0px;
-         }
-
-
-         </style>
+    </style>
     </head>
     <body>
 
-    <div id="dialog" title="Comments"></div>
-        <div id="container" class="center-div">
-            <div id="title" class="title-div">
-              UGLY BUILDINGS OF NEW YORK CITY
+<script>
+
+</script>
+
+      <div id="container" class="center-div">
+                      <div id="title" class="title-div">
+              <h1>UGLY BUILDINGS OF NEW YORK CITY</h1>
             </div>
 
-            <div id="map" class="map-div">
+              <div id="content" class="content-div">
+                  <div class="topgallery" style="float:top"><img id="galleryfront" src="media/111_Kent_1.jpeg" width = "100%"></div>
 
-                <script>
+                  <div class="content_title"><p>----- BUILDING DATA -----</p></div>
 
-                    function initMap() {
+                <div class="table">
+                    <div class="row">
+                        <div class="cell" style="width:80">STREET : </div>
+                        <div class="cell" id="street"></div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">NUMBER : </div>
+                        <div class="cell" id="number"></div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">YEAR BUILT : </div>
+                        <div class="cell" id="year"></div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">STORIES : </div>
+                        <div class="cell" id="stories"></div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">UNITS : </div>
+                        <div class="cell" id="units"></div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">HEIGHT : </div>
+                        <div class="cell" id="height"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell">UBO RATING : </div>
+                        <div class="cell" id="rating">
+                            <img id="one" height="15" src="{% static "/uboapp/star_empty.jpg"%}">
+                            <img id="two" height="15" src="{% static "/uboapp/star_empty.jpg"%}">
+                            <img id="three" height="15" src="{% static "/uboapp/star_empty.jpg"%}">
+                            <img id="four" height="15" src="{% static "/uboapp/star_empty.jpg"%}">
+                            <img id="five" height="15" src="{% static "/uboapp/star_empty.jpg"%}">
+                        </div>
+                    </div>
+                </div>
+    </div>
+
+      <div id="map" class="map-div">
+
+    <script src="{% static "/uboapp/js/ubo.js" %}"></script>
+
+
+
+	<script>
+	function opengallery(street,number,year,stories,units,height,rating,image){
+
+	            document.getElementById("galleryfront").src = image;
+
+                document.getElementById("street").innerHTML = street;
+                document.getElementById("number").innerHTML = number;
+                document.getElementById("year").innerHTML = year;
+                document.getElementById("stories").innerHTML = stories;
+                document.getElementById("units").innerHTML = units;
+                document.getElementById("height").innerHTML = height;
+
+                document.getElementById("one").src = "{% static "/uboapp/star_full.jpg"%}";
+
+                if (rating < 1.5) {
+                document.getElementById("two").src = "{% static "/uboapp/star_empty.jpg"%}";
+                document.getElementById("three").src = "{% static "/uboapp/star_empty.jpg"%}";
+                document.getElementById("four").src = "{% static "/uboapp/star_empty.jpg"%}";
+                document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
+                }else{
+                    if (rating < 2) {
+                        document.getElementById("two").src = "{% static "/uboapp/star_half.jpg"%}";
+                        document.getElementById("three").src = "{% static "/uboapp/star_empty.jpg"%}";
+                        document.getElementById("four").src = "{% static "/uboapp/star_empty.jpg"%}";
+                        document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
+                    }else{
+                        if (rating < 2.5) {
+                        document.getElementById("two").src = "{% static "/uboapp/star_full.jpg"%}";
+                        document.getElementById("three").src = "{% static "/uboapp/star_empty.jpg"%}";
+                        document.getElementById("four").src = "{% static "/uboapp/star_empty.jpg"%}";
+                        document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
+                        }else{
+                            if (rating < 3) {
+                                document.getElementById("two").src = "{% static "/uboapp/star_full.jpg"%}";
+                                document.getElementById("three").src = "{% static "/uboapp/star_half.jpg"%}";
+                                document.getElementById("four").src = "{% static "/uboapp/star_empty.jpg"%}";
+                                document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
+                            }else{
+                                if (rating < 3.5) {
+                                    document.getElementById("two").src = "{% static "/uboapp/star_full.jpg"%}";
+                                    document.getElementById("three").src = "{% static "/uboapp/star_full.jpg"%}";
+                                    document.getElementById("four").src = "{% static "/uboapp/star_empty.jpg"%}";
+                                    document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
+                                }else{
+                                    if (rating < 4) {
+                                    document.getElementById("two").src = "{% static "/uboapp/star_full.jpg"%}";
+                                    document.getElementById("three").src = "{% static "/uboapp/star_full.jpg"%}";
+                                    document.getElementById("four").src = "{% static "/uboapp/star_half.jpg"%}";
+                                    document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
+                                    }else{
+                                        if (rating < 4.5) {
+                                            document.getElementById("two").src = "{% static "/uboapp/star_full.jpg"%}";
+                                            document.getElementById("three").src = "{% static "/uboapp/star_full.jpg"%}";
+                                            document.getElementById("four").src = "{% static "/uboapp/star_full.jpg"%}";
+                                            document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
+                                        }else{
+                                        if (rating < 5) {
+                                            document.getElementById("two").src = "{% static "/uboapp/star_full.jpg"%}";
+                                            document.getElementById("three").src = "{% static "/uboapp/star_full.jpg"%}";
+                                            document.getElementById("four").src = "{% static "/uboapp/star_full.jpg"%}";
+                                            document.getElementById("five").src = "{% static "/uboapp/star_half.jpg"%}";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+          }
+    }
+
+
+      function initMap() {
                     var map = new google.maps.Map(document.getElementById('map'), {
                       center: {lat: 40.720398, lng: 	-73.973944},
                       zoom: 13
                     });
+
+
 
                     var opened_window = new google.maps.InfoWindow({
                       content: "null"
@@ -144,59 +164,48 @@
 
                     {% for building in buildings %}
                             var marker{{ building.id }} = new google.maps.Marker({
-                            position: {lat: {{ building.latitude }}, lng: {{ building.longitude }}},
-                              map: map
+                            position: {lat: {{ building.latitude }},
+                            lng: {{ building.longitude }}},
+                            map: map,
+
                             });
 
-                            var contentString{{ building.id }} = '<div id="content" class="content">'+
-                                '<div id="siteNotice">'+
-                                '<h4>{{ building.streetnumber }} {{ building.streetname }}</h4>'+
-                                '</div>'+
-                                '<a onclick="opengallery(\'' + '{{ building.image.image }}' + '\')" href="#"><img height="100px" src="media/{{ building.image.image }}" alt="Orange"></a>'+
-                                '<h5>YEAR BUILT : {{ building.yearbuilt }}</h5>'+
-                                '<h5>RATING :<img height="10" src="/media/5stars.png"></h5>'+
-                                '<h5><a onclick="overlay(\'' + '{{ building.id }}' + '\')" href="#">COMMENTS</a></h5>'+
-                                '</div>';
+                            var contentString{{ building.id }} =
+                                //'<div id="content" class="content">'+
+                                //'<div id="siteNotice">'+
+                                //'<h4>{{ building.streetnumber }} {{ building.streetname }}</h4>'+
+                                //'</div>'+
+                                //'<a onclick="opengallery(\'' + '{{ building.image.image }}' + '\')" href="#"><img height="100px" src="media/{{ building.image.image }}" alt="Orange"></a>'+
+                                //'</div>';
+                                '<div><h5>{{ building.streetnumber }} {{ building.streetname }}</h5></div>'
 
                             var infowindow{{ building.id }}= new google.maps.InfoWindow({
                               content: contentString{{ building.id }}
                             });
 
+
+                            var test{{ building.id }} = ratingcalc('{{ building.one }}' ,'{{ building.two }}' ,'{{ building.three }}' ,'{{ building.four }}' ,'{{ building.five }}');
+
+
                             marker{{ building.id }}.addListener('click', function() {
+                              opengallery('{{ building.streetname }}' , '{{ building.streetnumber }}','{{ building.yearbuilt }}','{{ building.stories }}','{{ building.units }}','{{ building.height }}', test{{ building.id }} , 'media/{{ building.image.image }}');
+                              //marker{{ building.id }}.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+
                               if (opened_window.content != "null") { opened_window.close(); };
                               infowindow{{ building.id }}.open(map, marker{{ building.id }});
                               opened_window = infowindow{{ building.id }};
                             });
                     {% endfor %}
                     }
-                </script>
-	            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq4WVROGdkNgIh3kjV1lPZe6u4v4LCZG8&callback=initMap" async defer></script>
-            </div>
-        </div>
-
-    <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
-    <div id="blueimp-gallery" class="blueimp-gallery">
-    <div class="slides"></div>
-    <h3 class="title"></h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <a class="play-pause"></a>
-    <ol class="indicator"></ol>
-    </div>
-
-    <script src="{% static "/uboapp/js/blueimp-gallery.min.js"%}"></script>
-
-    <script>
-    document.getElementById('links').onclick = function (event) {
-    event = event || window.event;
-    var target = event.target || event.srcElement,
-        link = target.src ? target.parentNode : target,
-        options = {index: link, event: event},
-        links = this.getElementsByTagName('a');
-    blueimp.Gallery(links, options);
-    };
     </script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq4WVROGdkNgIh3kjV1lPZe6u4v4LCZG8&callback=initMap"
+    async defer></script>
+
+
+
+    </div>
+          </div>
 
     </body>
 </html>
