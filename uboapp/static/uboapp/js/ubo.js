@@ -6,4 +6,10 @@
         return(rating/ratingfactor);
     }
 
+    function ratingscount(one, two, three, four, five)
+    {
+        var ratingfactor =  +one + +two + +three + +four + +five;
+        return(ratingfactor);
+    }
+
 

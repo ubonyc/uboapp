@@ -19,14 +19,27 @@
     </head>
     <body>
 
-<script>
+    <script>
 
-</script>
+            var comments{{ building.id }} = [,];
+
+            {% for building in buildings %}
+            if ('{{ building.comment }}'!='None') {
+            var commentnum = 0;
+            {% for comment in building.comments %}
+            comments['{{ building.id }}',commentnum] = '{{ comment.comment }}';
+            commentnum = commentnum + 1;
+            {% endfor %}
+            //alert(comments['{{ building.id }}','0']);
+            };
+
+            {% endfor %}
+    </script>
 
       <div id="container" class="center-div">
-                      <div id="title" class="title-div">
-              <h1>UGLY BUILDINGS OF NEW YORK CITY</h1>
-            </div>
+          <div class="title-div">
+              <h1><p>UGLY BUILDINGS OF NEW YORK CITY</p></h1>
+          </div>
 
               <div id="content" class="content-div">
                   <div class="topgallery" style="float:top"><img id="galleryfront" src="media/111_Kent_1.jpeg" width = "100%"></div>
@@ -35,12 +48,8 @@
 
                 <div class="table">
                     <div class="row">
-                        <div class="cell" style="width:80">STREET : </div>
+                        <div class="cell" style="width:90">ADDRESS : </div>
                         <div class="cell" id="street"></div>
-                    </div>
-                    <div class="row">
-                        <div class="cell">NUMBER : </div>
-                        <div class="cell" id="number"></div>
                     </div>
                     <div class="row">
                         <div class="cell">YEAR BUILT : </div>
@@ -60,7 +69,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="cell">UBO RATING : </div>
+                        <div class="cell">UBO RATING (<text id="ratingscount">0</text>) : </div>
                         <div class="cell" id="rating">
                             <img id="one" height="15" src="{% static "/uboapp/star_empty.jpg"%}">
                             <img id="two" height="15" src="{% static "/uboapp/star_empty.jpg"%}">
@@ -69,6 +78,18 @@
                             <img id="five" height="15" src="{% static "/uboapp/star_empty.jpg"%}">
                         </div>
                     </div>
+                </div>
+
+                <div class="voteform">
+                    <p>----- PLEASE RATE ! -----</p>
+                  <form action="/your-name/" method="post">
+                      <input type="radio" name="gender" value="1">1 - Acceptable<br>
+                      <input type="radio" name="gender" value="2">2 - Shows signs of ugliness<br>
+                      <input type="radio" name="gender" value="3">3 - Eye Sore<br>
+                      <input type="radio" name="gender" value="4">4 - Offensive<br>
+                      <input type="radio" name="gender" value="5">5 - Truly Ugly&#8482<br>
+                      <div  style="text-align: center; font-size='10'"><input type="submit" value="SUBMIT"></div>
+                  </form>
                 </div>
     </div>
 
@@ -79,16 +100,22 @@
 
 
 	<script>
-	function opengallery(street,number,year,stories,units,height,rating,image){
+	function opengallery(yes,street,number,year,stories,units,height,rating,ratingscount,image){
 
 	            document.getElementById("galleryfront").src = image;
 
-                document.getElementById("street").innerHTML = street;
-                document.getElementById("number").innerHTML = number;
+                document.getElementById("street").innerHTML = number + ' ' + street;
                 document.getElementById("year").innerHTML = year;
                 document.getElementById("stories").innerHTML = stories;
                 document.getElementById("units").innerHTML = units;
                 document.getElementById("height").innerHTML = height;
+
+                document.getElementById("ratingscount").innerHTML = ratingscount;
+
+                //alert(yes);
+                //alert(comments[parseInt(yes),'1']);
+
+                //document.getElementById("commentone").innerHTML = comments[yes,'0'];
 
                 document.getElementById("one").src = "{% static "/uboapp/star_full.jpg"%}";
 
@@ -185,10 +212,11 @@
 
 
                             var test{{ building.id }} = ratingcalc('{{ building.one }}' ,'{{ building.two }}' ,'{{ building.three }}' ,'{{ building.four }}' ,'{{ building.five }}');
+                            var ratingscount{{ building.id }} = ratingscount('{{ building.one }}' ,'{{ building.two }}' ,'{{ building.three }}' ,'{{ building.four }}' ,'{{ building.five }}');
 
 
                             marker{{ building.id }}.addListener('click', function() {
-                              opengallery('{{ building.streetname }}' , '{{ building.streetnumber }}','{{ building.yearbuilt }}','{{ building.stories }}','{{ building.units }}','{{ building.height }}', test{{ building.id }} , 'media/{{ building.image.image }}');
+                              opengallery('{{ building.id }}','{{ building.streetname }}' , '{{ building.streetnumber }}','{{ building.yearbuilt }}','{{ building.stories }}','{{ building.units }}','{{ building.height }}', test{{ building.id }}, ratingscount{{ building.id }} , 'media/{{ building.image.image }}');
                               //marker{{ building.id }}.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
 
                               if (opened_window.content != "null") { opened_window.close(); };

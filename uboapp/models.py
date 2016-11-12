@@ -1,7 +1,6 @@
 from django.db import models
 
 
-
 # Create your models here.
 class Building(models.Model):
     streetname = models.CharField(("Street name"),max_length=200, default=0)
@@ -13,11 +12,15 @@ class Building(models.Model):
     stories = models.IntegerField(default=10);
     units = models.IntegerField(default=50);
     height = models.IntegerField(default=50);
+    buildingarea = models.IntegerField(default=100000);
+    lotsize = models.IntegerField(default=50000);
+    buildingcode = models.CharField(("Building Code"),max_length=2, default="D1")
     one = models.IntegerField(default=0);
     two = models.IntegerField(default=0);
     three = models.IntegerField(default=0);
     four = models.IntegerField(default=0);
     five = models.IntegerField(default=0);
+
 
 
     def save(self, *args, **kwargs):
