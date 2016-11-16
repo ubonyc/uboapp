@@ -25,7 +25,7 @@ SECRET_KEY = '1#&@mz!)&@_l+ok3_eqod5@#^7xieh)*a)ip0vwc1b$3t&4%a9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ubo.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
