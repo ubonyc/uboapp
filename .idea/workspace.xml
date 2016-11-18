@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e98a4255-c49e-4182-a29b-65591d418ecd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ubo_project/settings.py" afterPath="$PROJECT_DIR$/ubo_project/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/css/style.css" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/css/style.css" />
     </list>
     <ignored path="ubo_project.iws" />
@@ -26,7 +28,7 @@
       <file leaf-file-name="building_list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uboapp/templates/uboapp/building_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2686">
+            <state relative-caret-position="2986">
               <caret line="241" column="107" selection-start-line="241" selection-start-column="107" selection-end-line="241" selection-end-column="107" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -42,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/ubo_project/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="405">
-              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+              <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -61,8 +63,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/uboapp/static/uboapp/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
+            <state relative-caret-position="265">
+              <caret line="115" column="20" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -111,7 +113,7 @@
       <file leaf-file-name="building_list 1112.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uboapp/templates/uboapp/Archive/building_list 1112.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
+            <state relative-caret-position="3255">
               <caret line="217" column="311" selection-start-line="217" selection-start-column="274" selection-end-line="217" selection-end-column="311" />
               <folding />
             </state>
@@ -134,10 +136,10 @@
         <option value="$PROJECT_DIR$/ubo_project/urls.py" />
         <option value="$PROJECT_DIR$/uboapp/templates/uboapp/ubo.js" />
         <option value="$PROJECT_DIR$/uboapp/static/uboapp/js/ubo.js" />
-        <option value="$PROJECT_DIR$/ubo_project/settings.py" />
         <option value="$PROJECT_DIR$/uboapp/models.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/uboapp/templates/uboapp/building_list.html" />
+        <option value="$PROJECT_DIR$/ubo_project/settings.py" />
         <option value="$PROJECT_DIR$/uboapp/static/uboapp/css/style.css" />
       </list>
     </option>
@@ -299,6 +301,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubo_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubo_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ubo_project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -473,7 +489,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="773" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17712471" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -838,14 +854,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ubo_project/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -856,15 +864,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/uboapp/templates/uboapp/Archive/building_list 1112.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
+        <state relative-caret-position="3255">
           <caret line="217" column="311" selection-start-line="217" selection-start-column="274" selection-end-line="217" selection-end-column="311" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ubo_project/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uboapp/templates/uboapp/building_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2686">
+        <state relative-caret-position="2986">
           <caret line="241" column="107" selection-start-line="241" selection-start-column="107" selection-end-line="241" selection-end-column="107" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -877,8 +893,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/uboapp/static/uboapp/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
+        <state relative-caret-position="265">
+          <caret line="115" column="20" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
           <folding />
         </state>
       </provider>

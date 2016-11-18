@@ -113,8 +113,7 @@
             and (max-device-width : 667px)
             and (orientation : portrait)
             {
-            .data_container{visibility : hidden}
-            .voteform{visibility : hidden}
+            .content{visibility : hidden}
             .map-div
                 {
                 width : 100%
