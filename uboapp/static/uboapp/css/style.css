@@ -114,16 +114,16 @@
             and (orientation : portrait)
             {
             .voteform { background-color : yellow; }
+
+            .map-div
+                {
+                padding-top :4px;
+                position : relative;
+                width: 90.5%;
+                height: 50%;
+                }
             }
 
-         .comment
-         {
-         height : 20px;
-         border-style:solid;
-         border-width:thin;
-         border-color:#000000;
-         vertical-align: middle;
-         }
 
          .outer { outline: 1px solid #eee; }
          .outer > p { display: table-cell; height: 20px; vertical-align: middle; }
