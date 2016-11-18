@@ -105,7 +105,7 @@
             and (max-device-width : 667px)
             and (orientation : portrait)
             {
-            .content-div{visibility : hidden}
+            .content-div{visibility : hidden; width : 0px}
             .map-div
                 {
                 width : 100%
