@@ -236,7 +236,8 @@
                             });
 
                             var contentString{{ building.id }} =
-                                '<div><h5>{{ building.streetnumber }} {{ building.streetname }}</h5></div>'
+                                '<div><h5>{{ building.streetnumber }} {{ building.streetname }}</h5></div>' +
+                                '<div class="bubble-div"><a onclick="slideshow(\'' + '{{ building.image.image }}' + '\')" href="#"><img height="100px" src="media/{{ building.image.image }}" alt="Orange"></a></div>'
 
                             var infowindow{{ building.id }}= new google.maps.InfoWindow({
                               content: contentString{{ building.id }}

@@ -95,6 +95,11 @@
          border-color:#000000;
          }
 
+         .bubble-div
+         {
+         height : 0px
+         }
+
          .voteform > p
          {
          text-align: center;
@@ -110,6 +115,10 @@
                 {
                 width : 100%
                 }
+            .bubble-div
+            {
+            height : 100px
+            }
             }
 
 
