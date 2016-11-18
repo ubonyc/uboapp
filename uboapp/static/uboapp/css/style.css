@@ -113,14 +113,9 @@
             and (max-device-width : 667px)
             and (orientation : portrait)
             {
-            .voteform { background-color : yellow; }
-
-            .map-div
+            .content-div
                 {
-                padding-top :4px;
-                position : relative;
-                width: 90.5%;
-                height: 50%;
+                visibility : hidden;
                 }
             }
 
