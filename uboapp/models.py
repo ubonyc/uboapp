@@ -8,13 +8,16 @@ class Building(models.Model):
     zipcode = models.CharField(("Zipcode"),max_length=5, default=0)
     latitude = models.CharField(("Latitude"),max_length=10, default=0)
     longitude = models.CharField(("Longitude"),max_length=10, default=0)
+
+    buildingtype = models.CharField(("Building type"),max_length=200, default=0)
     yearbuilt = models.IntegerField(default=2000);
     stories = models.IntegerField(default=10);
     units = models.IntegerField(default=50);
-    height = models.IntegerField(default=50);
-    buildingarea = models.IntegerField(default=100000);
+
+    area = models.IntegerField(default=100000);
     lotsize = models.IntegerField(default=50000);
-    buildingcode = models.CharField(("Building Code"),max_length=2, default="D1")
+    marketvalue = models.IntegerField(default=10000000);
+
     one = models.IntegerField(default=0);
     two = models.IntegerField(default=0);
     three = models.IntegerField(default=0);
