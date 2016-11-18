@@ -57,7 +57,7 @@
 
          .map-div
          {
-         padding-top :2px;
+         padding-top :4px;
          position : relative;
          margin: 0px;
          float : right;
@@ -81,6 +81,10 @@
          border-style:solid;
          border-width:thin;
          border-color:#000000;
+         width:100%;
+         border-style:solid;
+         border-width:thin;
+         border-color:#000000;
          }
 
          .data_title
@@ -93,15 +97,27 @@
          .voteform
          {
          width:100%;
+         margin-top : 5px;
          border-style:solid;
          border-width:thin;
          border-color:#000000;
          }
 
-         .voteform.p
+         .voteform > p
          {
          text-align: center;
          }
+
+         @media only screen
+            and (min-device-width : 375px)
+            and (max-device-width : 667px)
+            and (orientation : portrait)
+            {
+            .voteform > p
+            {
+            text-color : yellow;
+            }
+            }
 
          .comment
          {
