@@ -117,6 +117,11 @@
                 {
                 visibility : hidden;
                 }
+
+            .map-div
+                {
+                width : 100%
+                }
             }
 
 

@@ -64,9 +64,9 @@
 
 
 
-                  <!--
+
                   <div class="topgallery" style="float:top"><a onclick="slideshow();" href="#"><img id="galleryfront" src="{% static "/uboapp/ubo_blank.png"%}" width = "100%"></a></div>
-                   -->
+
 
                   <div class="data_container">
 
@@ -142,9 +142,9 @@
 
 
 	<script>
-	function opengallery(street,number,year,stories,units,rating,ratingscount,buildingtype,area,lotsize,marketvalue){
+	function opengallery(street,number,year,stories,units,rating,ratingscount,buildingtype,area,lotsize,marketvalue,image){
 
-	            //document.getElementById("galleryfront").src = image;
+	            document.getElementById("galleryfront").src = image;
 
                 document.getElementById("street").innerHTML = number + ' ' + street;
                 document.getElementById("year").innerHTML = year;
@@ -239,8 +239,7 @@
                             });
 
                             var contentString{{ building.id }} =
-                                '<div><h5>{{ building.streetnumber }} {{ building.streetname }}</h5></div>'+
-                                '<a onclick="slideshow(\'' + '{{ building.image.image }}' + '\')" href="#"><img height="100px" src="media/{{ building.image.image }}" alt="Orange"></a>'
+                                '<div><h5>{{ building.streetnumber }} {{ building.streetname }}</h5></div>'
 
                             var infowindow{{ building.id }}= new google.maps.InfoWindow({
                               content: contentString{{ building.id }}
@@ -252,7 +251,7 @@
 
 
                             marker{{ building.id }}.addListener('click', function() {
-                              opengallery('{{ building.streetname }}' , '{{ building.streetnumber }}','{{ building.yearbuilt }}','{{ building.stories }}','{{ building.units }}', test{{ building.id }}, ratingscount{{ building.id }} , '{{ building.buildingtype }}' , '{{ building.area }}' , '{{ building.lotsize }}' , '{{ building.marketvalue }}');
+                              opengallery('{{ building.streetname }}' , '{{ building.streetnumber }}','{{ building.yearbuilt }}','{{ building.stories }}','{{ building.units }}', test{{ building.id }}, ratingscount{{ building.id }} , '{{ building.buildingtype }}' , '{{ building.area }}' , '{{ building.lotsize }}' , '{{ building.marketvalue }}' , 'media/{{ building.image.image }}');
                                activebuilding = '{{ building.id }}';
                               if (opened_window.content != "null") { opened_window.close(); };
                               infowindow{{ building.id }}.open(map, marker{{ building.id }});
