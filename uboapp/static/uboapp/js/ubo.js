@@ -13,3 +13,23 @@
     }
 
 
+
+        var activebuilding;
+
+        function slideshow(){
+        blueimp.Gallery(
+            [
+                {
+                    data: {urls: ['media/111_Kent_1.jpeg']}
+                },
+                {
+                    data: {urls: ['media/111_Kent_2.jpeg']}
+                }
+            ],
+            {
+                urlProperty: 'data.urls[0]'
+            }
+        );
+        }
+
+

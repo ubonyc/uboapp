@@ -23,13 +23,14 @@
          .title-div
          {
          position: relative;
-         padding-top:10px;
-         padding-bottom:10px;
+         padding-top:5px;
+         padding-bottom:5px;
          width: 100%;
          border-style:solid;
          border-width:thin;
          border-color:#000000;
          display: table;
+         background-color : white;
          }
 
          .menuitems
@@ -42,7 +43,7 @@
 
          .menumain
          {
-         width:33.3%;
+         width:100%;
          position:relative;
          display: table-cell;
          vertical-align: middle;
@@ -66,7 +67,7 @@
 
          .data_title
          {
-         height : 30px;
+         height : 20px;
          vertical-align: middle;
          text-align: center;
          }
@@ -81,6 +82,7 @@
          border-color:#D8D8D8;
          padding-bottom :5px;
          padding-left : 5px;
+         background-color : white;
          }
 
          .rating_section
@@ -93,17 +95,18 @@
          padding-bottom :5px;
          margin-top : 4px;
          padding-left : 5px;
+         background-color : white;
          }
 
          .rating_details
          {
-            width:66%;
+            width:60%;
             float:left;
          }
 
          .rating_grade
          {
-            width:30%;
+            width:40%;
             float:right;
          }
 
@@ -121,6 +124,7 @@
          border-width:thin;
          border-color:#D8D8D8;
          padding-left : 5px;
+         background-color : white;
          }
 
          .map-div
@@ -129,7 +133,7 @@
          position : relative;
          margin: 0px;
          float : right;
-         width: 71.5%;
+         width: 71%;
          height: 93.5%;
          }
 
@@ -163,13 +167,13 @@
 
 
         .table { display: table; margin-left:2px}
-        .row { display: table-row; height:22px; margin: 0px; padding:0px; vertical-align: middle;}
-        .cell { display: table-cell; height:22px; margin: 0px; padding:0px; vertical-align: middle; }
+        .row { display: table-row; height:18px; margin: 0px; padding:0px; vertical-align: middle;}
+        .cell { display: table-cell; height:18px; margin: 0px; padding:0px; vertical-align: middle; }
 
-        .rating_bar {background-color:#eb6e01; height : 18px;}
+        .rating_bar {background-color:#eb6e01; height : 16px;}
 
 
-        h5
+        h5, h2
         {
         margin:0;
         }

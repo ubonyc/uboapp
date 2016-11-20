@@ -14,44 +14,26 @@
 
         <link rel="stylesheet" href="{% static "/uboapp/css/style.css" %}">
 
-        <script>
-        var activebuilding;
-
-        function slideshow(){
-        blueimp.Gallery(
-            [
-                {
-                    data: {urls: ['media/111_Kent_1.jpeg']}
-                },
-                {
-                    data: {urls: ['media/111_Kent_2.jpeg']}
-                }
-            ],
-            {
-                urlProperty: 'data.urls[0]'
-            }
-        );
-        }
-
-        </script>
-
         <style>
             html, body {
             height: 100%;
             margin: 0;
             padding: 0;
-            font-size :0.9em;
+            font-size :0.8em;
             font-family : arial;
+            background-color : #F8F8F8;
             }
         </style>
     </head>
     <body>
 
+    <script src="{% static "/uboapp/js/ubo.js" %}"></script>
+
       <div id="container" class="center-div">
           <div class="title-div">
-              <div class="menuitems" style="text-align:left; float:left">POST A NEW BUILDING</div>
-              <div class="menumain" style="text-align:center; float:left">UGLY BUILDINGS OF NEW YORK CITY</div>
-              <div class="menuitems" style="text-align:right; float:left">ABOUT US</div>
+              <!-- <div class="menuitems" style="text-align:left; float:left"></div> -->
+              <div class="menumain" style="text-align:center; float:left"><h2>UGLY BUILDINGS OF NEW YORK CITY</h2></div>
+              <!-- <div class="menuitems" style="text-align:right; float:left"></div> -->
           </div>
 
               <div class="content-div">
@@ -64,38 +46,38 @@
 
                                 <div class="table">
                                     <div class="row">
-                                        <div class="cell" style="width:120px">ADDRESS : </div>
+                                        <div class="cell" style="width:100px">Address : </div>
                                         <div class="cell" id="street"></div>
                                     </div>
                                     <div class="row">
-                                        <div class="cell">TYPE : </div>
+                                        <div class="cell">Type : </div>
                                         <div class="cell" id="buildingclass"></div>
                                     </div>
                                     <div class="row">
-                                        <div class="cell">YEAR BUILT : </div>
+                                        <div class="cell">Year built : </div>
                                         <div class="cell" id="year"></div>
                                     </div>
                                     <div class="row">
-                                        <div class="cell">STORIES : </div>
+                                        <div class="cell">Stories : </div>
                                         <div class="cell" id="stories"></div>
                                     </div>
                                     <div class="row">
-                                        <div class="cell">UNITS : </div>
+                                        <div class="cell">Units : </div>
                                         <div class="cell" id="units"></div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="cell">AREA : </div>
+                                        <div class="cell">Area : </div>
                                         <div class="cell" id="area"></div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="cell">LOT SIZE : </div>
+                                        <div class="cell">Lot size : </div>
                                         <div class="cell" id="lotsize"></div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="cell">MARKET VALUE : </div>
+                                        <div class="cell">Market value : </div>
                                         <div class="cell" id="marketvalue"></div>
                                     </div>
                                 </div>
@@ -104,7 +86,7 @@
                   <div class="rating_section">
                     <div class="data_title"><p>----- RATINGS -----</p></div>
 
-                    <div class="rating_details">UBO RATING (<text id="ratingscount">0</text>) :
+                    <div class="rating_details"><div style="margin-bottom :4px">UBO RATING (<text id="ratingscount">0</text>) :</div>
 
                                 <div class="table">
                                     <div class="row">
@@ -133,7 +115,7 @@
                     <div class="rating_grade">
                         <div id="rating_digits"></div>
                         <div><img id="rating_image" height="20" src="{% static "/uboapp/stars/stars_00.png"%}"></div>
-                        <div style="font-size:1.2em" id="rating_label"></div>
+                        <div style="font-size:1.2em; margin-top:10px" id="rating_label"></div>
 
                     </div>
                   </div>
@@ -153,8 +135,6 @@
 
 
     <div id="map" class="map-div">
-
-    <script src="{% static "/uboapp/js/ubo.js" %}"></script>
 
 	<script>
 
@@ -182,8 +162,8 @@
                 document.getElementById("stories").innerHTML = stories;
                 document.getElementById("units").innerHTML = units;
                 document.getElementById("buildingclass").innerHTML = buildingtype;
-                document.getElementById("area").innerHTML = area + " sqft";
-                document.getElementById("lotsize").innerHTML = lotsize + " sqft";
+                document.getElementById("area").innerHTML = area + " SQFT";
+                document.getElementById("lotsize").innerHTML = lotsize + " SQFT";
                 document.getElementById("marketvalue").innerHTML = "$" + marketvalue;
                 document.getElementById("ratingscount").innerHTML = ratingscount;
                 document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_00.png"%}";
@@ -200,11 +180,11 @@
 
                 document.getElementById("rating_digits").innerHTML = rating.toFixed(1);
 
-                if (rating <= 0.5) { document.getElementById("rating_label").innerHTML = "Acceptable"; }
-                if ((rating >= 0.5) && (rating <= 1.5)) { document.getElementById("rating_label").innerHTML = "Shows signs of ugliness"; }
-                if ((rating >= 2.5) && (rating <= 2.5)) { document.getElementById("rating_label").innerHTML = "Eye Sore"; }
-                if ((rating >= 3.5) && (rating <= 4.5)) { document.getElementById("rating_label").innerHTML = "Offensive"; }
-                if (rating >= 4.5) { document.getElementById("rating_label").innerHTML = "Truly Ugly&#8482"; }
+                if (rating <= 1.5) { document.getElementById("rating_label").innerHTML = "ACCEPTABLE"; }
+                if ((rating >= 1.5) && (rating <= 2.5)) { document.getElementById("rating_label").innerHTML = "SHOWS SIGNS OF UGLINESS"; }
+                if ((rating >= 2.5) && (rating <= 3.5)) { document.getElementById("rating_label").innerHTML = "EYE SORE"; }
+                if ((rating >= 3.5) && (rating <= 4.5)) { document.getElementById("rating_label").innerHTML = "OFFENSIVE"; }
+                if (rating >= 4.5) { document.getElementById("rating_label").innerHTML = "TRULY UGLY&#8482"; }
 
     }
 
