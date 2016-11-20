@@ -17,7 +17,6 @@
         <script>
         var activebuilding;
 
-
         function slideshow(){
         blueimp.Gallery(
             [
@@ -41,7 +40,7 @@
             height: 100%;
             margin: 0;
             padding: 0;
-            font-size :10;
+            font-size :0.9em;
             font-family : arial;
             }
         </style>
@@ -51,95 +50,130 @@
       <div id="container" class="center-div">
           <div class="title-div">
               <div class="menuitems" style="text-align:left; float:left">POST A NEW BUILDING</div>
-              <div class="menuitems" style="text-align:center; float:left">UGLY BUILDINGS OF NEW YORK CITY</div>
+              <div class="menumain" style="text-align:center; float:left">UGLY BUILDINGS OF NEW YORK CITY</div>
               <div class="menuitems" style="text-align:right; float:left">ABOUT US</div>
           </div>
 
-
               <div class="content-div">
 
-
-
-
-
-                  <div class="topgallery" style="float:top"><a onclick="slideshow();" href="#"><img id="galleryfront" src="{% static "/uboapp/ubo_blank.png"%}" width = "100%"></a></div>
-
+                  <div class="topgallery" style="float:top"><a onclick="slideshow();" href="#"><img id="galleryfront" src="" width = "100%"></a></div>
 
                   <div class="data_container">
 
-                  <div class="data_title"><p>----- BUILDING DATA -----</p></div>
+                      <div class="data_title"><p>----- BUILDING DATA -----</p></div>
 
-                <div class="table">
-                    <div class="row">
-                        <div class="cell" style="width:90">ADDRESS : </div>
-                        <div class="cell" id="street"></div>
-                    </div>
-                    <div class="row">
-                        <div class="cell">TYPE : </div>
-                        <div class="cell" id="buildingclass"></div>
-                    </div>
-                    <div class="row">
-                        <div class="cell">YEAR BUILT : </div>
-                        <div class="cell" id="year"></div>
-                    </div>
-                    <div class="row">
-                        <div class="cell">STORIES : </div>
-                        <div class="cell" id="stories"></div>
-                    </div>
-                    <div class="row">
-                        <div class="cell">UNITS : </div>
-                        <div class="cell" id="units"></div>
+                                <div class="table">
+                                    <div class="row">
+                                        <div class="cell" style="width:120px">ADDRESS : </div>
+                                        <div class="cell" id="street"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">TYPE : </div>
+                                        <div class="cell" id="buildingclass"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">YEAR BUILT : </div>
+                                        <div class="cell" id="year"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">STORIES : </div>
+                                        <div class="cell" id="stories"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">UNITS : </div>
+                                        <div class="cell" id="units"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="cell">AREA : </div>
+                                        <div class="cell" id="area"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="cell">LOT SIZE : </div>
+                                        <div class="cell" id="lotsize"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="cell">MARKET VALUE : </div>
+                                        <div class="cell" id="marketvalue"></div>
+                                    </div>
+                                </div>
+                  </div>
+
+                  <div class="rating_section">
+                    <div class="data_title"><p>----- RATINGS -----</p></div>
+
+                    <div class="rating_details">UBO RATING (<text id="ratingscount">0</text>) :
+
+                                <div class="table">
+                                    <div class="row">
+                                        <div class="cell" style="width:20px">5 *</div>
+                                        <div class="cell"><div class="rating_bar" id="rating_five"></div></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">4*</div>
+                                        <div class="cell"><div class="rating_bar" id="rating_four"></div></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">3 *</div>
+                                        <div class="cell"><div class="rating_bar" id="rating_three"></div></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">2*</div>
+                                        <div class="cell"><div class="rating_bar" id="rating_two"></div></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">1*</div>
+                                        <div class="cell"><div class="rating_bar" id="rating_one"></div></div>
+                                    </div>
+                                </div>
                     </div>
 
-                    <div class="row">
-                        <div class="cell">AREA : </div>
-                        <div class="cell" id="area"></div>
-                    </div>
+                    <div class="rating_grade">
+                        <div id="rating_digits"></div>
+                        <div><img id="rating_image" height="20" src="{% static "/uboapp/stars/stars_00.png"%}"></div>
+                        <div style="font-size:1.2em" id="rating_label"></div>
 
-                    <div class="row">
-                        <div class="cell">LOT SIZE : </div>
-                        <div class="cell" id="lotsize"></div>
                     </div>
+                  </div>
 
-                    <div class="row">
-                        <div class="cell">MARKET VALUE : </div>
-                        <div class="cell" id="marketvalue"></div>
+                   <div class="voteform">
+                        <p>----- RATE ! -----</p>
+                      <form action="/your-name/" method="post">
+                          <input type="radio" name="gender" value="1">1 - Acceptable<br>
+                          <input type="radio" name="gender" value="2">2 - Shows signs of ugliness<br>
+                          <input type="radio" name="gender" value="3">3 - Eye Sore<br>
+                          <input type="radio" name="gender" value="4">4 - Offensive<br>
+                          <input type="radio" name="gender" value="5">5 - Truly Ugly&#8482<br>
+                          <div  style="text-align: center;"><input type="submit" value="SUBMIT"></div>
+                      </form>
                     </div>
-
-                    <div class="row">
-                        <div class="cell">UBO RATING (<text id="ratingscount">0</text>) : </div>
-                        <div class="cell" id="rating">
-                            <img id="one" height="15" src="{% static "/uboapp/star_empty.jpg"%}">
-                            <img id="two" height="15" src="{% static "/uboapp/star_empty.jpg"%}">
-                            <img id="three" height="15" src="{% static "/uboapp/star_empty.jpg"%}">
-                            <img id="four" height="15" src="{% static "/uboapp/star_empty.jpg"%}">
-                            <img id="five" height="15" src="{% static "/uboapp/star_empty.jpg"%}">
-                        </div>
-                    </div>
-                </div>
-              </div>
-
-               <div class="voteform">
-                    <p>----- PLEASE RATE ! -----</p>
-                  <form action="/your-name/" method="post">
-                      <input type="radio" name="gender" value="1">1 - Acceptable<br>
-                      <input type="radio" name="gender" value="2">2 - Shows signs of ugliness<br>
-                      <input type="radio" name="gender" value="3">3 - Eye Sore<br>
-                      <input type="radio" name="gender" value="4">4 - Offensive<br>
-                      <input type="radio" name="gender" value="5">5 - Truly Ugly&#8482<br>
-                      <div  style="text-align: center; font-size='10'"><input type="submit" value="SUBMIT"></div>
-                  </form>
-                </div>
     </div>
 
-      <div id="map" class="map-div">
+
+    <div id="map" class="map-div">
 
     <script src="{% static "/uboapp/js/ubo.js" %}"></script>
 
-
-
 	<script>
-	function opengallery(street,number,year,stories,units,rating,ratingscount,buildingtype,area,lotsize,marketvalue,image){
+
+	function rating_show(rating_grade){
+
+	if ((rating_grade >= 0) && (rating_grade <= 0.5)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_00.png"%}"; } 
+	if ((rating_grade >= 0.5) && (rating_grade <= 1)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_05.png"%}"; } 
+	if ((rating_grade >= 1) && (rating_grade <= 1.5)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_10.png"%}"; } 
+	if ((rating_grade >= 1.5) && (rating_grade <= 2)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_15.png"%}"; } 
+    if ((rating_grade >= 2) && (rating_grade <= 2.5)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_20.png"%}"; }  
+	if ((rating_grade >= 2.5) && (rating_grade <= 3)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_25.png"%}"; } 
+	if ((rating_grade >= 3) && (rating_grade <= 3.5)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_30.png"%}"; } 
+	if ((rating_grade >= 3.5) && (rating_grade <= 4)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_35.png"%}"; } 
+	if ((rating_grade >= 4) && (rating_grade <= 4.5)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_40.png"%}"; } 
+	if ((rating_grade >= 4.5) && (rating_grade <= 5)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_45.png"%}"; }  
+
+	}
+
+	function opengallery(street,number,year,stories,units,rating,ratingscount,buildingtype,area,lotsize,marketvalue,image,five,four,three,two,one){
 
 	            document.getElementById("galleryfront").src = image;
 
@@ -148,70 +182,30 @@
                 document.getElementById("stories").innerHTML = stories;
                 document.getElementById("units").innerHTML = units;
                 document.getElementById("buildingclass").innerHTML = buildingtype;
-
                 document.getElementById("area").innerHTML = area + " sqft";
                 document.getElementById("lotsize").innerHTML = lotsize + " sqft";
                 document.getElementById("marketvalue").innerHTML = "$" + marketvalue;
-
                 document.getElementById("ratingscount").innerHTML = ratingscount;
+                document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_00.png"%}";
 
-                document.getElementById("one").src = "{% static "/uboapp/star_full.jpg"%}";
+                rating_show(rating);
 
-                if (rating < 1.5) {
-                document.getElementById("two").src = "{% static "/uboapp/star_empty.jpg"%}";
-                document.getElementById("three").src = "{% static "/uboapp/star_empty.jpg"%}";
-                document.getElementById("four").src = "{% static "/uboapp/star_empty.jpg"%}";
-                document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
-                }else{
-                    if (rating < 2) {
-                        document.getElementById("two").src = "{% static "/uboapp/star_half.jpg"%}";
-                        document.getElementById("three").src = "{% static "/uboapp/star_empty.jpg"%}";
-                        document.getElementById("four").src = "{% static "/uboapp/star_empty.jpg"%}";
-                        document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
-                    }else{
-                        if (rating < 2.5) {
-                        document.getElementById("two").src = "{% static "/uboapp/star_full.jpg"%}";
-                        document.getElementById("three").src = "{% static "/uboapp/star_empty.jpg"%}";
-                        document.getElementById("four").src = "{% static "/uboapp/star_empty.jpg"%}";
-                        document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
-                        }else{
-                            if (rating < 3) {
-                                document.getElementById("two").src = "{% static "/uboapp/star_full.jpg"%}";
-                                document.getElementById("three").src = "{% static "/uboapp/star_half.jpg"%}";
-                                document.getElementById("four").src = "{% static "/uboapp/star_empty.jpg"%}";
-                                document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
-                            }else{
-                                if (rating < 3.5) {
-                                    document.getElementById("two").src = "{% static "/uboapp/star_full.jpg"%}";
-                                    document.getElementById("three").src = "{% static "/uboapp/star_full.jpg"%}";
-                                    document.getElementById("four").src = "{% static "/uboapp/star_empty.jpg"%}";
-                                    document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
-                                }else{
-                                    if (rating < 4) {
-                                    document.getElementById("two").src = "{% static "/uboapp/star_full.jpg"%}";
-                                    document.getElementById("three").src = "{% static "/uboapp/star_full.jpg"%}";
-                                    document.getElementById("four").src = "{% static "/uboapp/star_half.jpg"%}";
-                                    document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
-                                    }else{
-                                        if (rating < 4.5) {
-                                            document.getElementById("two").src = "{% static "/uboapp/star_full.jpg"%}";
-                                            document.getElementById("three").src = "{% static "/uboapp/star_full.jpg"%}";
-                                            document.getElementById("four").src = "{% static "/uboapp/star_full.jpg"%}";
-                                            document.getElementById("five").src = "{% static "/uboapp/star_empty.jpg"%}";
-                                        }else{
-                                        if (rating < 5) {
-                                            document.getElementById("two").src = "{% static "/uboapp/star_full.jpg"%}";
-                                            document.getElementById("three").src = "{% static "/uboapp/star_full.jpg"%}";
-                                            document.getElementById("four").src = "{% static "/uboapp/star_full.jpg"%}";
-                                            document.getElementById("five").src = "{% static "/uboapp/star_half.jpg"%}";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-          }
+                var rating_max = Math.max(one,two,three,four,five);
+
+                document.getElementById("rating_five").style.width = five/rating_max*150;
+                document.getElementById("rating_four").style.width = four/rating_max*150;
+                document.getElementById("rating_three").style.width = three/rating_max*150;
+                document.getElementById("rating_two").style.width = two/rating_max*150;
+                document.getElementById("rating_one").style.width = one/rating_max*150;
+
+                document.getElementById("rating_digits").innerHTML = rating.toFixed(1);
+
+                if (rating <= 0.5) { document.getElementById("rating_label").innerHTML = "Acceptable"; }
+                if ((rating >= 0.5) && (rating <= 1.5)) { document.getElementById("rating_label").innerHTML = "Shows signs of ugliness"; }
+                if ((rating >= 2.5) && (rating <= 2.5)) { document.getElementById("rating_label").innerHTML = "Eye Sore"; }
+                if ((rating >= 3.5) && (rating <= 4.5)) { document.getElementById("rating_label").innerHTML = "Offensive"; }
+                if (rating >= 4.5) { document.getElementById("rating_label").innerHTML = "Truly Ugly&#8482"; }
+
     }
 
 
@@ -237,7 +231,9 @@
 
                             var contentString{{ building.id }} =
                                 '<div><h5>{{ building.streetnumber }} {{ building.streetname }}</h5></div>' +
-                                '<div class="bubble-div"><a onclick="slideshow(\'' + '{{ building.image.image }}' + '\')" href="#"><img height="100px" src="media/{{ building.image.image }}" alt="Orange"></a></div>'
+                                '<div class="bubble-div">'+
+                                '<a onclick="slideshow(\'' + '{{ building.image.image }}' + '\')" href="#"><img height="100px" src="media/{{ building.image.image }}" alt="Orange"></a>'+
+                                '</div>'
 
                             var infowindow{{ building.id }}= new google.maps.InfoWindow({
                               content: contentString{{ building.id }}
@@ -249,7 +245,7 @@
 
 
                             marker{{ building.id }}.addListener('click', function() {
-                              opengallery('{{ building.streetname }}' , '{{ building.streetnumber }}','{{ building.yearbuilt }}','{{ building.stories }}','{{ building.units }}', test{{ building.id }}, ratingscount{{ building.id }} , '{{ building.buildingtype }}' , '{{ building.area }}' , '{{ building.lotsize }}' , '{{ building.marketvalue }}' , 'media/{{ building.image.image }}');
+                              opengallery('{{ building.streetname }}' , '{{ building.streetnumber }}','{{ building.yearbuilt }}','{{ building.stories }}','{{ building.units }}', test{{ building.id }}, ratingscount{{ building.id }} , '{{ building.buildingtype }}' , '{{ building.area }}' , '{{ building.lotsize }}' , '{{ building.marketvalue }}' , 'media/{{ building.image.image }}' , '{{ building.five }}' , '{{ building.four }}' , '{{ building.three }}' , '{{ building.two }}' , '{{ building.one }}');
                                activebuilding = '{{ building.id }}';
                               if (opened_window.content != "null") { opened_window.close(); };
                               infowindow{{ building.id }}.open(map, marker{{ building.id }});
