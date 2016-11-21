@@ -49,7 +49,8 @@
          vertical-align: middle;
          }
 
-         .content-div
+
+         #init_div
          {
          position : relative;
          margin: 0px;
@@ -57,12 +58,28 @@
          float : left;
          width: 28%;
          height: 95%;
+         vertical-align : middle;
+         display: table;
          }
 
 
-         .topgallery
+         #content-div
          {
+         position : relative;
+         margin: 0px;
+         padding-top:2px;
+         float : left;
+         width: 28%;
+         height: 95%;
 
+
+         display : none;
+         visibility : hidden;
+         }
+
+
+         #top_gallery
+         {
          }
 
          .data_title
@@ -119,12 +136,9 @@
          .voteform
          {
          width:100%;
-         margin-top : 5px;
-         border-style:solid;
-         border-width:thin;
-         border-color:#D8D8D8;
+         margin-top : 2px;
          padding-left : 5px;
-         background-color : white;
+         background-color : #fff5e6;
          }
 
          .map-div
@@ -173,7 +187,7 @@
         .rating_bar {background-color:#eb6e01; height : 16px;}
 
 
-        h5, h2
+        h5, h3
         {
         margin:0;
         }

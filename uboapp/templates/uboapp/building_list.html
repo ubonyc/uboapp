@@ -19,7 +19,7 @@
             height: 100%;
             margin: 0;
             padding: 0;
-            font-size :0.9em;
+            font-size :0.85em;
             font-family : arial;
             background-color : #F8F8F8;
             }
@@ -31,14 +31,14 @@
 
       <div id="container" class="center-div">
           <div class="title-div">
-              <!-- <div class="menuitems" style="text-align:left; float:left"></div> -->
-              <div class="menumain" style="text-align:center;"><h2>UGLY BUILDINGS OF NEW YORK CITY</h2></div>
-              <!-- <div class="menuitems" style="text-align:right; float:left"></div> -->
+          <div class="menumain" style="text-align:center">UGLY BUILDINGS OF NEW YORK CITY</div>
           </div>
 
-              <div class="content-div">
+          <div id="init_div"><div style="vertical-align : middle; display : table-cell; text-align : center"><P>UGLY BUILDINGS OF NEW YORK CITY (UBO) RATES REAL ESTATE DEVELOPMENTS COMPLETED AFTER 2000 BASED ON THEIR DESIGN.</P><p>IT IS INTENDED TO GIVE NEW YORKERS AND TOURISTS ALIKE A WAY TO VOICE THEIR OPINION REGARDING THE DESIGN OF THESE NEW CONSTRUCTIONS</p></div></div>
 
-                  <div class="topgallery" style="float:top"><a onclick="slideshow();" href="#"><img id="galleryfront" src="" width = "100%"></a></div>
+              <div id="content-div">
+
+                  <div id="top_gallery" style="float:top"><a onclick="slideshow();" href="#"><img id="galleryfront" src="" width = "100%"></a></div>
 
                   <div class="data_container">
 
@@ -46,7 +46,7 @@
 
                                 <div class="table">
                                     <div class="row">
-                                        <div class="cell" style="width:100px">Address : </div>
+                                        <div class="cell" style="width:85px">Address : </div>
                                         <div class="cell" id="street"></div>
                                     </div>
                                     <div class="row">
@@ -86,7 +86,7 @@
                   <div class="rating_section">
                     <div class="data_title"><p>----- RATINGS -----</p></div>
 
-                    <div class="rating_details"><div style="margin-bottom :4px">UBO RATING (<text id="ratingscount">0</text>) :</div>
+                    <div class="rating_details"><div style="margin-bottom :4px">UBO RATINGS (<text id="ratingscount">0</text>) :</div>
 
                                 <div class="table">
                                     <div class="row">
@@ -119,74 +119,17 @@
 
                     </div>
                   </div>
-
-                   <div class="voteform">
-                        <p>----- RATE ! -----</p>
-                      <form action="/your-name/" method="post">
-                          <input type="radio" name="gender" value="1">1 - Acceptable<br>
-                          <input type="radio" name="gender" value="2">2 - Shows signs of ugliness<br>
-                          <input type="radio" name="gender" value="3">3 - Eye Sore<br>
-                          <input type="radio" name="gender" value="4">4 - Offensive<br>
-                          <input type="radio" name="gender" value="5">5 - Truly Ugly&#8482<br>
-                          <div  style="text-align: center;"><input type="submit" value="SUBMIT"></div>
-                      </form>
-                    </div>
     </div>
 
 
     <div id="map" class="map-div">
 
+    <script src="{% static "/uboapp/js/js_map.js" %}"></script>
+
 	<script>
 
-	function rating_show(rating_grade){
 
-	if ((rating_grade >= 0) && (rating_grade <= 0.5)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_00.png"%}"; } 
-	if ((rating_grade >= 0.5) && (rating_grade <= 1)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_05.png"%}"; } 
-	if ((rating_grade >= 1) && (rating_grade <= 1.5)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_10.png"%}"; } 
-	if ((rating_grade >= 1.5) && (rating_grade <= 2)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_15.png"%}"; } 
-    if ((rating_grade >= 2) && (rating_grade <= 2.5)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_20.png"%}"; }  
-	if ((rating_grade >= 2.5) && (rating_grade <= 3)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_25.png"%}"; } 
-	if ((rating_grade >= 3) && (rating_grade <= 3.5)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_30.png"%}"; } 
-	if ((rating_grade >= 3.5) && (rating_grade <= 4)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_35.png"%}"; } 
-	if ((rating_grade >= 4) && (rating_grade <= 4.5)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_40.png"%}"; } 
-	if ((rating_grade >= 4.5) && (rating_grade <= 5)) { document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_45.png"%}"; }  
 
-	}
-
-	function opengallery(street,number,year,stories,units,rating,ratingscount,buildingtype,area,lotsize,marketvalue,image,five,four,three,two,one){
-
-	            document.getElementById("galleryfront").src = image;
-
-                document.getElementById("street").innerHTML = number + ' ' + street;
-                document.getElementById("year").innerHTML = year;
-                document.getElementById("stories").innerHTML = stories;
-                document.getElementById("units").innerHTML = units;
-                document.getElementById("buildingclass").innerHTML = buildingtype;
-                document.getElementById("area").innerHTML = area + " SQFT";
-                document.getElementById("lotsize").innerHTML = lotsize + " SQFT";
-                document.getElementById("marketvalue").innerHTML = "$" + marketvalue;
-                document.getElementById("ratingscount").innerHTML = ratingscount;
-                document.getElementById("rating_image").src = "{% static "/uboapp/stars/stars_00.png"%}";
-
-                rating_show(rating);
-
-                var rating_max = Math.max(one,two,three,four,five);
-
-                document.getElementById("rating_five").style.width = five/rating_max*150;
-                document.getElementById("rating_four").style.width = four/rating_max*150;
-                document.getElementById("rating_three").style.width = three/rating_max*150;
-                document.getElementById("rating_two").style.width = two/rating_max*150;
-                document.getElementById("rating_one").style.width = one/rating_max*150;
-
-                document.getElementById("rating_digits").innerHTML = rating.toFixed(1);
-
-                if (rating <= 1.5) { document.getElementById("rating_label").innerHTML = "ACCEPTABLE"; }
-                if ((rating >= 1.5) && (rating <= 2.5)) { document.getElementById("rating_label").innerHTML = "SHOWS SIGNS OF UGLINESS"; }
-                if ((rating >= 2.5) && (rating <= 3.5)) { document.getElementById("rating_label").innerHTML = "EYE SORE"; }
-                if ((rating >= 3.5) && (rating <= 4.5)) { document.getElementById("rating_label").innerHTML = "OFFENSIVE"; }
-                if (rating >= 4.5) { document.getElementById("rating_label").innerHTML = "TRULY UGLY&#8482"; }
-
-    }
 
 
       function initMap() {
@@ -209,8 +152,19 @@
 
                             });
 
+
                             var contentString{{ building.id }} =
-                                '<div><h5>{{ building.streetnumber }} {{ building.streetname }}</h5></div>' +
+                                '<div class="voteform">'+
+                                '<p>----- RATE ! -----</p>' +
+                                '<form action="/your-name/" method="post">' +
+                                '<input type="radio" name="gender" value="1">1 - Acceptable<br>' +
+                                '<input type="radio" name="gender" value="2">2 - Shows signs of ugliness<br>' +
+                                '<input type="radio" name="gender" value="3">3 - Eye Sore<br>' +
+                                '<input type="radio" name="gender" value="4">4 - Offensive<br>' +
+                                '<input type="radio" name="gender" value="5">5 - Truly Ugly&#8482<br>' +
+                                '<div  style="text-align: center;"><input type="submit" value="SUBMIT"></div>' +
+                                '</form>' +
+                                '</div>'+
                                 '<div class="bubble-div">'+
                                 '<a onclick="slideshow(\'' + '{{ building.image.image }}' + '\')" href="#"><img height="100px" src="media/{{ building.image.image }}" alt="Orange"></a>'+
                                 '</div>'
@@ -235,7 +189,7 @@
                     }
     </script>
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq4WVROGdkNgIh3kjV1lPZe6u4v4LCZG8&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq4WVROGdkNgIh3kjV1lPZe6u4v4LCZG8&callback=initMap"
     async defer></script>
 
 
