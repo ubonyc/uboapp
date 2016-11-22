@@ -3,19 +3,24 @@ from django.db import models
 
 # Create your models here.
 class Building(models.Model):
-    streetname = models.CharField(("Street name"),max_length=200, default=0)
-    streetnumber = models.CharField(("Street number"),max_length=5, default=0)
+    streetname = models.CharField(("Street name"),max_length=200, default="NA")
+    streetnumber = models.CharField(("Street number"),max_length=5, default="NA")
     zipcode = models.CharField(("Zipcode"),max_length=5, default=0)
     latitude = models.CharField(("Latitude"),max_length=10, default=0)
     longitude = models.CharField(("Longitude"),max_length=10, default=0)
 
-    buildingtype = models.CharField(("Building type"),max_length=200, default=0)
+    buildingtype = models.CharField(("Building class"),max_length=200, default="NA")
     yearbuilt = models.IntegerField(default=2000);
-    stories = models.IntegerField(default=10);
-    units = models.IntegerField(default=50);
+    stories = models.IntegerField(default=0);
+    res_units = models.IntegerField(default=0);
+    com_units = models.IntegerField(default=0);
 
+    structure_type = models.CharField(("Structure type"), max_length=200, default="NA")
+    grade = models.CharField(("Grade"), max_length=200, default="NA")
+    construction_type = models.CharField(("Construction type"), max_length=200, default="NA")
     area = models.IntegerField(default=100000);
     lotsize = models.IntegerField(default=50000);
+
     marketvalue = models.IntegerField(default=10000000);
 
     one = models.IntegerField(default=0);

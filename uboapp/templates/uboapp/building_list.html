@@ -46,11 +46,11 @@
 
                                 <div class="table">
                                     <div class="row">
-                                        <div class="cell" style="width:85px">Address : </div>
+                                        <div class="cell" style="width:120px">Address : </div>
                                         <div class="cell" id="street"></div>
                                     </div>
                                     <div class="row">
-                                        <div class="cell">Type : </div>
+                                        <div class="cell">Class : </div>
                                         <div class="cell" id="buildingclass"></div>
                                     </div>
                                     <div class="row">
@@ -62,8 +62,25 @@
                                         <div class="cell" id="stories"></div>
                                     </div>
                                     <div class="row">
-                                        <div class="cell">Units : </div>
-                                        <div class="cell" id="units"></div>
+                                        <div class="cell">Residential units : </div>
+                                        <div class="cell" id="res_units"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">Commercial units : </div>
+                                        <div class="cell" id="com_units"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="cell">Structure type : </div>
+                                        <div class="cell" id="structure_type"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">Grade : </div>
+                                        <div class="cell" id="grade"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">Construction type : </div>
+                                        <div class="cell" id="construction_type"></div>
                                     </div>
 
                                     <div class="row">
@@ -179,7 +196,7 @@
 
 
                             marker{{ building.id }}.addListener('click', function() {
-                              opengallery('{{ building.streetname }}' , '{{ building.streetnumber }}','{{ building.yearbuilt }}','{{ building.stories }}','{{ building.units }}', test{{ building.id }}, ratingscount{{ building.id }} , '{{ building.buildingtype }}' , '{{ building.area }}' , '{{ building.lotsize }}' , '{{ building.marketvalue }}' , 'media/{{ building.image.image }}' , '{{ building.five }}' , '{{ building.four }}' , '{{ building.three }}' , '{{ building.two }}' , '{{ building.one }}');
+                              opengallery('{{ building.streetname }}' , '{{ building.streetnumber }}','{{ building.yearbuilt }}','{{ building.stories }}','{{ building.res_units }}','{{ building.com_units }}',test{{ building.id }}, ratingscount{{ building.id }} , '{{ building.buildingtype }}' , '{{ building.area }}' , '{{ building.lotsize }}' , '{{ building.marketvalue }}' , 'media/{{ building.image.image }}' , '{{ building.five }}' , '{{ building.four }}' , '{{ building.three }}' , '{{ building.two }}' , '{{ building.one }}' , '{{ building.structure_type }}' , '{{ building.grade }}' , '{{ building.construction_type }}');
                                activebuilding = '{{ building.id }}';
                               if (opened_window.content != "null") { opened_window.close(); };
                               infowindow{{ building.id }}.open(map, marker{{ building.id }});

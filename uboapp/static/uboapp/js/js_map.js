@@ -1,17 +1,25 @@
-	function opengallery(street,number,year,stories,units,rating,ratingscount,buildingtype,area,lotsize,marketvalue,image,five,four,three,two,one){
+	function opengallery(street,number,year,stories,res_units,com_units,rating,ratingscount,buildingtype,area,lotsize,marketvalue,image,five,four,three,two,one,structure_type,grade,construction_type){
 
 	            document.getElementById("galleryfront").src = image;
 
                 document.getElementById("street").innerHTML = number + ' ' + street;
                 document.getElementById("year").innerHTML = year;
                 document.getElementById("stories").innerHTML = stories;
-                document.getElementById("units").innerHTML = units;
-                document.getElementById("buildingclass").innerHTML = buildingtype.toUpperCase();
-                document.getElementById("area").innerHTML = area + " SQFT";
-                document.getElementById("lotsize").innerHTML = lotsize + " SQFT";
+                document.getElementById("res_units").innerHTML = res_units;
+                document.getElementById("com_units").innerHTML = com_units;
+                document.getElementById("buildingclass").innerHTML = buildingtype;
 
-                var amount = parseFloat(marketvalue);
-                document.getElementById("marketvalue").innerHTML = "$" + amount.toLocaleString();
+                document.getElementById("structure_type").innerHTML = structure_type;
+                document.getElementById("grade").innerHTML = grade;
+                document.getElementById("construction_type").innerHTML = construction_type;
+
+                var temp = parseFloat(area);
+                document.getElementById("area").innerHTML = temp.toLocaleString() + " SQFT";
+                temp = parseFloat(lotsize);
+                document.getElementById("lotsize").innerHTML = temp.toLocaleString() + " SQFT";
+
+                temp = parseFloat(marketvalue);
+                document.getElementById("marketvalue").innerHTML = "$" + temp.toLocaleString();
                 document.getElementById("ratingscount").innerHTML = ratingscount;
                 document.getElementById("rating_image").src = "static/uboapp/stars/stars_00.png";
 
