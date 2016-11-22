@@ -1,7 +1,5 @@
 	function opengallery(street,number,year,stories,res_units,com_units,rating,ratingscount,buildingtype,area,lotsize,marketvalue,image,five,four,three,two,one,structure_type,grade,construction_type){
 
-	            alert('OK');
-
 	            document.getElementById("galleryfront").src = image;
 
                 document.getElementById("street").innerHTML = number + ' ' + street;
