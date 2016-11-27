@@ -69,7 +69,6 @@
                                         <div class="cell">Commercial units : </div>
                                         <div class="cell" id="com_units"></div>
                                     </div>
-
                                     <div class="row">
                                         <div class="cell">Structure type : </div>
                                         <div class="cell" id="structure_type"></div>
@@ -135,7 +134,17 @@
                         <div style="font-size:1.2em; margin-top:10px" id="rating_label"></div>
 
                     </div>
-                  </div>
+
+</div>
+                    <div class="voteform">
+                    <p>----- RATE ! -----</p>
+                                <form action="/create_post/" method="POST" id="post-form">
+                                {% csrf_token %}
+                                Comment: <input type="text" id="post-text"><br>
+                                <input type="submit" value="submit">
+                                </form>
+                    </div>
+
     </div>
 
 
@@ -205,11 +214,7 @@
                     {% endfor %}
                     }
     </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq4WVROGdkNgIh3kjV1lPZe6u4v4LCZG8&callback=initMap"
-    async defer></script>
-
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq4WVROGdkNgIh3kjV1lPZe6u4v4LCZG8&callback=initMap" async defer></script>
         </div>
 
       </div>
@@ -226,6 +231,9 @@
     </div>
 
     <script src="{% static "/uboapp/js/blueimp-gallery.min.js"%}"></script>
+
+    <script src="{% static "/uboapp/js/main.js" %}"></script>
+
 
     </body>
 </html>

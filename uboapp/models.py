@@ -51,12 +51,12 @@ class Building(models.Model):
         return self.images.first()
 
     @property
-    def comments(self):
-        return self.comment_set.all()
+    def texts(self):
+        return self.text_set.all()
 
     @property
-    def comment(self):
-        return self.comments.first()
+    def text(self):
+        return self.text.first()
 
 def building_upload_to(instance, filename):
     filename = filename.lower()
@@ -81,17 +81,13 @@ class ImgBuilding(models.Model):
 
 
 class Comment(models.Model):
-    comment = models.CharField(("Comment"),max_length=200, default=0)
-    tri = models.IntegerField(default=0)
+    text = models.TextField()
     building = models.ForeignKey(Building)
 
-    def save(self, *args, **kwargs):
-        super(Comment, self).save(*args, **kwargs)
+    created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name = ("Comment")
-        verbose_name_plural = ("Comments")
-        ordering = ("tri",)
+        ordering = ['created']
 
     def __str__(self):
-        return self.building.comment.comment
+        return self.building.text

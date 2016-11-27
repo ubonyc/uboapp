@@ -25,9 +25,9 @@ class ImgBuildingInline(ImgInline):
 class ComsInline(admin.TabularInline):
     extra = 0
     max_num = 10
-    fields = ('comment',)
-    verbose_name = ("comment")
-    verbose_name_plural = ("comments")
+    fields = ('text',)
+    verbose_name = ("text")
+    verbose_name_plural = ("texts")
     readonly_fields = ('show_img',)
     def show_img(self, obj):
         return mark_safe(obj.comment)
