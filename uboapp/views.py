@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import Building, Comment
 from django.http import HttpResponse
 from .forms import PostForm
+from django.contrib.auth import authenticate, login
+
 import json
 
 # Create your views here.
@@ -18,7 +20,7 @@ def create_post(request):
         post_text = request.POST.get('the_post')
         response_data = {}
 
-        comment = Comment(text=post_text, building='1')
+        comment = Comment(text=post_text, building=Building.objects.get(streetname="UBO"))
         comment.save()
 
         response_data['result'] = 'Create post successful!'

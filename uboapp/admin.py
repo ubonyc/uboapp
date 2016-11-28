@@ -48,3 +48,5 @@ class BuildingAdmin(admin.ModelAdmin):
     inlines = [ImgBuildingInline,CommentInline]
 
 admin.site.register(Building, BuildingAdmin)
+
+admin.site.register(Comment)

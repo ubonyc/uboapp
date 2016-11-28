@@ -52,11 +52,11 @@ class Building(models.Model):
 
     @property
     def texts(self):
-        return self.text_set.all()
+        return self.comment_set.all()
 
     @property
     def text(self):
-        return self.text.first()
+        return self.texts.first()
 
 def building_upload_to(instance, filename):
     filename = filename.lower()
@@ -90,4 +90,4 @@ class Comment(models.Model):
         ordering = ['created']
 
     def __str__(self):
-        return self.building.text
+        return self.text
