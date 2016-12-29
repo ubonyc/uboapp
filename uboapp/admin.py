@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Building, ImgBuilding, Comment
+from .models import Building, ImgBuilding, Comment, Rating
 from django.utils.safestring import mark_safe
 
 
@@ -47,6 +47,15 @@ class BuildingAdmin(admin.ModelAdmin):
     search_fields = ("streetname", "zipcode")
     inlines = [ImgBuildingInline,CommentInline]
 
-admin.site.register(Building, BuildingAdmin)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ("building", "text", "created")
+    search_fields = ("building", )
 
-admin.site.register(Comment)
+class RatingAdmin(admin.ModelAdmin):
+    list_display = ("building", "rate", "created")
+    search_fields = ("building", )
+
+
+admin.site.register(Building, BuildingAdmin)
+#admin.site.register(Comment, CommentAdmin)
+admin.site.register(Rating, RatingAdmin)

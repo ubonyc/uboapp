@@ -27,61 +27,26 @@
     </head>
     <body>
 
-    <div id="details" title="BUILDING DETAILS"></div>
+    <div id="details" title="Building details"></div>
 
     <script src="{% static "/uboapp/js/ubo.js" %}"></script>
 
       <div id="container" class="center-div">
           <div class="title-div">
-            <div class="menumain" style="text-align:center">UGLY BUILDINGS OF NEW YORK CITY</div>
+          <div class="menumain" style="text-align:center">UGLY BUILDINGS OF NEW YORK CITY</div>
           </div>
 
-          <div id="init_div">
-            <div style="vertical-align : middle; display : table-cell; text-align : center">
-                <P>UGLY BUILDINGS OF NEW YORK CITY (UBO) RATES REAL ESTATE DEVELOPMENTS COMPLETED AFTER 2000 BASED ON THEIR DESIGN.</P>
-                <p>IT IS INTENDED TO GIVE NEW YORKERS AND TOURISTS ALIKE A WAY TO VOICE THEIR OPINION REGARDING THE DESIGN OF THESE NEW CONSTRUCTIONS</p>
-            </div></div>
+          <div id="init_div"><div style="vertical-align : middle; display : table-cell; text-align : center"><P>UGLY BUILDINGS OF NEW YORK CITY (UBO) RATES REAL ESTATE DEVELOPMENTS COMPLETED AFTER 2000 BASED ON THEIR DESIGN.</P><p>IT IS INTENDED TO GIVE NEW YORKERS AND TOURISTS ALIKE A WAY TO VOICE THEIR OPINION REGARDING THE DESIGN OF THESE NEW CONSTRUCTIONS</p></div></div>
 
               <div id="content-div">
 
                   <div id="top_gallery" style="float:top"><a onclick="slideshow();" href="#"><img id="galleryfront" src="" width = "100%"></a></div>
 
-                  <div class="data_container">
-                      <div class="section_title">----- BUILDING DATA -----</div>
-                                <div class="table">
-                                    <div class="row">
-                                        <div class="cell" style="width:120px">Address :</div>
-                                        <div class="cell" id="street"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="cell">Class : </div>
-                                        <div class="cell" id="building_class"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="cell">Year built : </div>
-                                        <div class="cell" id="year_built"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="cell">Stories : </div>
-                                        <div class="cell" id="stories"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="cell">Construction type : </div>
-                                        <div class="cell" id="construction_type"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="cell"><a href="javascript:overlay()">More details...</a></div>
-                                        <div class="cell"></div>
-                                    </div>
-                                </div>
-                  </div>
 
                   <div class="rating_section">
                     <!-- <div class="ratings_title"><p>----- RATINGS -----</p></div> -->
 
-                    <div class="section_title">----- RATINGS (<text id='ratings_count'>0</text>) -----</div>
-
-                    <div class="rating_details" id="rating_width">
+                    <div class="rating_details" id="rating_width"><div style="margin-bottom :4px">UBO RATINGS (<text id='ratings_count'>0</text>) :</div>
 
                                 <div class="table">
                                     <div class="row">
@@ -117,8 +82,70 @@
                   </div>
 
 
+
+
+                  <div class="data_container">
+
+                      <!-- <div class="data_title"><p>----- BUILDING DATA -----</p></div> -->
+
+                                <div class="table">
+                                    <div class="row">
+                                        <div class="cell" style="width:120px" onclick="overlay()"><b>Address : #</b></div>
+                                        <div class="cell" id="street"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">Class : </div>
+                                        <div class="cell" id="building_class"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">Year built : </div>
+                                        <div class="cell" id="year_built"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">Stories : </div>
+                                        <div class="cell" id="stories"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">Residential : </div>
+                                        <div class="cell" id="res_units"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">Commercial : </div>
+                                        <div class="cell" id="com_units"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">Structure : </div>
+                                        <div class="cell" id="structure_type"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">Grade : </div>
+                                        <div class="cell" id="grade"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell">Construction type : </div>
+                                        <div class="cell" id="construction_type"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="cell">Area : </div>
+                                        <div class="cell" id="area"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="cell">Lot size : </div>
+                                        <div class="cell" id="lotsize"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="cell">Market value : </div>
+                                        <div class="cell" id="marketvalue"></div>
+                                    </div>
+                                </div>
+                  </div>
+
+
                     <div class="voteform">
-                    <div class="section_title">----- RATE ! -----</div>
+                    <p>----- RATE ! -----</p>
                                 <form action="/create_post/" method="POST" id="post-form">{% csrf_token %}
                                 Comment: <input type="text" id="post-text"><br>
                                 <input type="submit" value="submit">
@@ -127,7 +154,7 @@
 
 
                     <div class="rateform">
-                        <div class="section_title">----- RATE ! -----</div>
+                        <p>----- RATE ! -----</p>
                         <form action="/post_rating/" method="post" id="rating-form">{% csrf_token %}
                         <input type="radio" name="rateradio" value="1" >1 - Acceptable<br>
                         <input type="radio" name="rateradio" value="2" >2 - Shows signs of ugliness<br>
@@ -137,7 +164,8 @@
                         <div  style="text-align: center;"><input type="submit" value="SUBMIT"></div>
                         </form>
                     </div>
-                </div>
+
+    </div>
 
 
     <div id="map" class="map-div">
@@ -187,8 +215,19 @@
 
 
                             var contentString{{ building.id }} =
-                                '<div>'+
-                                '{{ building.streetnumber }} {{ building.streetname }}' +
+                                '<div class="rateform">'+
+                                '<p>----- RATE ! -----</p>' +
+                                '<form action="/post_rating/" method="post" id="rating_form">' + token +
+                                '<input type="radio" name="rate" value="1" id="post-rate">1 - Acceptable<br>' +
+                                '<input type="radio" name="rate" value="2" id="post-rate">2 - Shows signs of ugliness<br>' +
+                                '<input type="radio" name="rate" value="3" id="post-rate">3 - Eye Sore<br>' +
+                                '<input type="radio" name="rate" value="4" id="post-rate">4 - Offensive<br>' +
+                                '<input type="radio" name="rate" value="5" id="post-rate">5 - Truly Ugly&#8482<br>' +
+                                '<div  style="text-align: center;"><input type="submit" value="SUBMIT"></div>' +
+                                '</form>' +
+                                '</div>'+
+                                '<div class="bubble-div">'+
+                                '<a onclick="slideshow(\'' + '{{ building.image.image }}' + '\')" href="#"><img height="100px" src="media/{{ building.image.image }}" alt="Orange"></a>'+
                                 '</div>'
 
                             var infowindow{{ building.id }}= new google.maps.InfoWindow({
@@ -229,7 +268,7 @@
     <ol class="indicator"></ol>
     </div>
 
-    <script src="{% static "/uboapp/js/blueimp/blueimp-gallery.min.js"%}"></script>
+    <script src="{% static "/uboapp/js/blueimp-gallery.min.js"%}"></script>
 
     <script src="{% static "/uboapp/js/main.js" %}"></script>
 

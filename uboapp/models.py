@@ -9,7 +9,7 @@ class Building(models.Model):
     latitude = models.CharField(("Latitude"),max_length=10, default=0)
     longitude = models.CharField(("Longitude"),max_length=10, default=0)
 
-    buildingtype = models.CharField(("Building class"),max_length=200, default="NA")
+    building_class = models.CharField(("Building class"),max_length=200, default="NA")
     yearbuilt = models.IntegerField(default=2000);
     stories = models.IntegerField(default=0);
     res_units = models.IntegerField(default=0);
@@ -23,11 +23,11 @@ class Building(models.Model):
 
     marketvalue = models.IntegerField(default=10000000);
 
-    one = models.IntegerField(default=0);
-    two = models.IntegerField(default=0);
-    three = models.IntegerField(default=0);
-    four = models.IntegerField(default=0);
-    five = models.IntegerField(default=0);
+    #one = models.IntegerField(default=0);
+    #two = models.IntegerField(default=0);
+    #three = models.IntegerField(default=0);
+    #four = models.IntegerField(default=0);
+    #five = models.IntegerField(default=0);
 
 
 
@@ -40,7 +40,7 @@ class Building(models.Model):
         verbose_name_plural = ("Buildings")
 
     def __str__(self):
-        return str(self.streetname)
+        return '%s %s' %(str(self.streetnumber), str(self.streetname), )
 
     @property
     def images(self):
@@ -81,9 +81,8 @@ class ImgBuilding(models.Model):
 
 
 class Comment(models.Model):
-    text = models.TextField()
     building = models.ForeignKey(Building)
-
+    text = models.CharField(max_length=200)
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -91,3 +90,18 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+
+
+
+class Rating(models.Model):
+    building = models.ForeignKey(Building)
+    rate = models.IntegerField(default=1)
+    created = models.DateTimeField(auto_now_add=True)
+    client_ip = models.CharField(max_length=15, default="0.0.0.0")
+
+    class Meta:
+        ordering = ['created']
+
+    #def __str__(self):
+        #return self.rate

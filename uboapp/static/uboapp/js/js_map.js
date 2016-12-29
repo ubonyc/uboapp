@@ -2,6 +2,7 @@
 
 	            document.getElementById("galleryfront").src = image;
 
+                /*
                 document.getElementById("street").innerHTML = number + ' ' + street;
                 document.getElementById("year").innerHTML = year;
                 document.getElementById("stories").innerHTML = stories;
@@ -41,6 +42,8 @@
                 if ((rating >= 2.5) && (rating <= 3.5)) { document.getElementById("rating_label").innerHTML = "EYE SORE"; }
                 if ((rating >= 3.5) && (rating <= 4.5)) { document.getElementById("rating_label").innerHTML = "OFFENSIVE"; }
                 if (rating >= 4.5) { document.getElementById("rating_label").innerHTML = "TRULY UGLY&#8482"; }
+
+                */
 
                 document.getElementById("content-div").style.display = 'inline';
                 document.getElementById("content-div").style.visibility = 'visible';
