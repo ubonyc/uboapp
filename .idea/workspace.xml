@@ -1,48 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e98a4255-c49e-4182-a29b-65591d418ecd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uboapp/templates/uboapp/Archive/building_list_122316.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/media/111_Kent_1.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/media/111_Kent_2.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/media/130_Grand_st_1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/media/207_Houston_St_1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/media/34_Berry_1.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/media/524__Manhattan_Avenue_1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/media/568_Union_1.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/media/80metro.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/evil.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/star_empty.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/star_full.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/star_half.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/stars_45.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/ubo_blank.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/world.jpg" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp-gallery-fullscreen.js" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp/blueimp-gallery-fullscreen.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp-gallery-indicator.js" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp/blueimp-gallery-indicator.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp-gallery-video.js" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp/blueimp-gallery-video.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp-gallery-vimeo.js" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp/blueimp-gallery-vimeo.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp-gallery-youtube.js" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp/blueimp-gallery-youtube.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp-gallery.js" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp/blueimp-gallery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp-gallery.min.js" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp/blueimp-gallery.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp-gallery.min.js.map" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp/blueimp-gallery.min.js.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp-helper.js" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp/blueimp-helper.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/demo.js" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp/demo.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/jquery.blueimp-gallery.js" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp/jquery.blueimp-gallery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/jquery.blueimp-gallery.min.js" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp/jquery.blueimp-gallery.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/jquery.blueimp-gallery.min.js.map" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/blueimp/jquery.blueimp-gallery.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uboapp/admin.py" afterPath="$PROJECT_DIR$/uboapp/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uboapp/forms.py" afterPath="$PROJECT_DIR$/uboapp/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uboapp/models.py" afterPath="$PROJECT_DIR$/uboapp/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/css/style.css" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/js_map.js" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/js_map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uboapp/static/uboapp/js/main.js" afterPath="$PROJECT_DIR$/uboapp/static/uboapp/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uboapp/templates/uboapp/building_list.html" afterPath="$PROJECT_DIR$/uboapp/templates/uboapp/building_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uboapp/urls.py" afterPath="$PROJECT_DIR$/uboapp/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uboapp/views.py" afterPath="$PROJECT_DIR$/uboapp/views.py" />
-    </list>
+    <list default="true" id="e98a4255-c49e-4182-a29b-65591d418ecd" name="Default" comment="" />
     <ignored path="ubo_project.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,18 +31,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uboapp/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uboapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -108,7 +55,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uboapp/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ubo_project/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uboapp/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="446">
@@ -118,8 +87,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tests.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uboapp/tests.py">
+      <file leaf-file-name="apps.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uboapp/apps.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -131,21 +100,11 @@
       <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uboapp/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
+            <state relative-caret-position="885">
               <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ubo.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uboapp/static/uboapp/js/ubo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -182,7 +141,6 @@
         <option value="$PROJECT_DIR$/uboapp/templates/uboapp/test.html" />
         <option value="$PROJECT_DIR$/uboapp/templates/uboapp/ubo.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/ubo_project/settings.py" />
         <option value="$PROJECT_DIR$/uboapp/static/uboapp/js/ubo.js" />
         <option value="$PROJECT_DIR$/ubo_project/urls.py" />
         <option value="$PROJECT_DIR$/uboapp/static/uboapp/js/js_map.js" />
@@ -194,6 +152,7 @@
         <option value="$PROJECT_DIR$/uboapp/templates/uboapp/building_list.html" />
         <option value="$PROJECT_DIR$/uboapp/views.py" />
         <option value="$PROJECT_DIR$/uboapp/models.py" />
+        <option value="$PROJECT_DIR$/ubo_project/settings.py" />
       </list>
     </option>
   </component>
@@ -320,67 +279,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="uboapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uboapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="ubo_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ubo_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uboapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uboapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ubo_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ubo_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uboapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uboapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -556,7 +455,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="214" y="25" width="1280" height="773" extended-state="0" />
+    <frame x="214" y="25" width="1280" height="773" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22716442" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -786,13 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ubo_project/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ubo_project/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -808,13 +700,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uboapp/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uboapp/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -876,26 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uboapp/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uboapp/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/uboapp/static/uboapp/js/ubo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -909,16 +774,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uboapp/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -956,10 +811,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/uboapp/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uboapp/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/uboapp/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="446">
           <caret line="100" column="47" selection-start-line="100" selection-start-column="47" selection-end-line="100" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uboapp/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uboapp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ubo_project/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
           <folding />
         </state>
       </provider>
