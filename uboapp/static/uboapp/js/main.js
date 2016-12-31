@@ -30,14 +30,13 @@ function csrfSafeMethod(method) {
 // Submit post on submit
 $('#rating-form').on('submit', function(event){
     event.preventDefault();
-    console.log("rating form submitted!")  // sanity check
+    console.log("post_rating : Form submitted");  // sanity check
     post_rating();
-    get_building(activebuilding);
 });
 
 // AJAX for posting rating
 function post_rating() {
-    console.log("post rating is working!"); // sanity check
+    console.log("post_rating : Function called"); // sanity check
     $.ajaxSetup({
     beforeSend: function(xhr, settings) {
         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
@@ -45,8 +44,8 @@ function post_rating() {
         }
     }
     });
-    console.log("ajax setup completed"); // sanity check
-    console.log("post-rate : " + $(":input[name=rateradio]:checked").val()); // sanity check
+    //console.log("post_rating : ajax setup completed"); // sanity check
+    //console.log("post_rating : post-rate : " + $(":input[name=rateradio]:checked").val()); // sanity check
 
     $.ajax({
         url : "post_rating/", // the endpoint
@@ -62,7 +61,9 @@ function post_rating() {
             $('#post_rate').val(''); // remove the value from the input
             console.log(json); // log the returned json to the console
 
-            console.log("success"); // another sanity check
+            //console.log("post_rating : success"); // another sanity check
+            console.log("TRANSITION");
+            get_building(activebuilding);
         },
 
         // handle a non-successful response
@@ -118,7 +119,7 @@ function create_post() {
 
 // AJAX for getting
 function get_building(building_id) {
-    console.log("ajax get is working! / building_id : " + building_id); // sanity check
+    console.log("get_building : ajax called / building_id : " + building_id); // sanity check
     $.ajaxSetup({
     beforeSend: function(xhr, settings) {
         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
@@ -126,7 +127,8 @@ function get_building(building_id) {
         }
     }
     });
-    console.log("ajax get setup completed"); // sanity check
+    //console.log("get_building : ajax setup completed"); // sanity check
+    //console.log("get_building : ID = " + building_id)
 
     $.ajax({
         url : "get_building/", // the endpoint
@@ -137,31 +139,31 @@ function get_building(building_id) {
         success : function(json) {
             //$('#post-text').val(''); // remove the value from the input
             console.log(json); // log the returned json to the console
-            console.log("success"); // another sanity check
+            console.log("get_building : success"); // another sanity check
             document.getElementById("street").innerHTML = json.streetnumber + ' ' + json.streetname;
             document.getElementById("building_class").innerHTML = json.building_class;
             document.getElementById("year_built").innerHTML = json.year_built;
             document.getElementById("stories").innerHTML = json.stories;
-            //document.getElementById("res_units").innerHTML = json.res_units;
-            //document.getElementById("com_units").innerHTML = json.com_units;
-            //document.getElementById("structure_type").innerHTML = json.structure_type;
-            //document.getElementById("grade").innerHTML = json.grade;
+            document.getElementById("res_units").innerHTML = json.res_units;
+            document.getElementById("com_units").innerHTML = json.com_units;
+            document.getElementById("structure_type").innerHTML = json.structure_type;
+            document.getElementById("grade").innerHTML = json.grade;
             document.getElementById("construction_type").innerHTML = json.construction_type;
 
-            //temp = parseFloat(json.area);
-            //document.getElementById("area").innerHTML = temp.toLocaleString();
+            temp = parseFloat(json.area);
+            document.getElementById("area").innerHTML = temp.toLocaleString();
 
-            //temp = parseFloat(json.lotsize);
-            //document.getElementById("lotsize").innerHTML = temp.toLocaleString();
+            temp = parseFloat(json.lotsize);
+            document.getElementById("lotsize").innerHTML = temp.toLocaleString();
 
-            //temp = parseFloat(json.marketvalue);
-            //document.getElementById("marketvalue").innerHTML = "$" + temp.toLocaleString();
+            temp = parseFloat(json.marketvalue);
+            document.getElementById("marketvalue").innerHTML = "$" + temp.toLocaleString();
 
             document.getElementById("ratings_count").innerHTML = json.ratings_count;
 
             rate_digits = json.ratings_rate.rate__avg.toFixed(1);
 
-            console.log("rate digits : " + rate_digits); // sanity check
+            //console.log("rate digits : " + rate_digits); // sanity check
 
             document.getElementById("rating_digits").innerHTML = rate_digits;
 
@@ -170,8 +172,6 @@ function get_building(building_id) {
             var rating_max = Math.max(json.ratings_one,json.ratings_two,json.ratings_three,json.ratings_four,json.ratings_five);
 
                 var max_width = document.getElementById("rating_width").offsetWidth - 30;
-
-                console.log("max_width : " + max_width);
 
                 document.getElementById("rating_five").style.width = json.ratings_five/rating_max*max_width;
                 document.getElementById("rating_four").style.width = json.ratings_four/rating_max*max_width;
@@ -248,3 +248,20 @@ function get_building(building_id) {
                     {height: modalheight}
                 );
     };
+
+
+    function moredetails(){
+        //document.getElementById("data_id").style.height = 500;
+
+        document.getElementById("hidden_div").style.visibility = "visible";
+        document.getElementById("hidden_div").style.display = "inline";
+        document.getElementById("more_div").innerHTML = '<a href="javascript:lessdetails()">Less details</a>';
+
+    }
+
+    function lessdetails(){
+        document.getElementById("hidden_div").style.visibility = "hidden";
+        document.getElementById("hidden_div").style.display = "none";
+        document.getElementById("more_div").innerHTML = '<a href="javascript:moredetails()">More details</a>';
+
+    }

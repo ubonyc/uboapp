@@ -46,8 +46,8 @@
 
                   <div id="top_gallery" style="float:top"><a onclick="slideshow();" href="#"><img id="galleryfront" src="" width = "100%"></a></div>
 
-                  <div class="data_container">
-                      <div class="section_title">----- BUILDING DATA -----</div>
+                  <div class="data_container" id="data_id">
+                      <div class="section_title">----- INFO -----</div>
                                 <div class="table">
                                     <div class="row">
                                         <div class="cell" style="width:120px">Address :</div>
@@ -69,8 +69,40 @@
                                         <div class="cell">Construction type : </div>
                                         <div class="cell" id="construction_type"></div>
                                     </div>
+                                </div>
+                                <div class="table">
+                                    <div id="hidden_div">
+                                        <div class="row">
+                                            <div class="cell" style="width:120px">Residential units : </div>
+                                            <div class="cell" id="res_units"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="cell">Commercial units : </div>
+                                            <div class="cell" id="com_units"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="cell">Structure : </div>
+                                            <div class="cell" id="structure_type"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="cell">Grade : </div>
+                                            <div class="cell" id="grade"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="cell">Area : </div>
+                                            <div class="cell" id="area"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="cell">Lot size : </div>
+                                            <div class="cell" id="lotsize"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="cell">Market value : </div>
+                                            <div class="cell" id="marketvalue"></div>
+                                        </div>
+                                    </div>
                                     <div class="row">
-                                        <div class="cell"><a href="javascript:overlay()">More details...</a></div>
+                                        <div id="more_div"class="cell"><a href="javascript:moredetails()">More details</a></div>
                                         <div class="cell"></div>
                                     </div>
                                 </div>

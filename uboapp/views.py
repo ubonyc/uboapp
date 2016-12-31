@@ -24,24 +24,29 @@ def post_rating(request):
 
         ip = get_ip(request)
 
-        rating = Rating(rate=post_rate, client_ip=ip, building=Building.objects.get(id=active_building))
-        rating.save()
+        if Rating.objects.filter(building=active_building, client_ip=ip).count() == 0:
+            rating = Rating(rate=post_rate, client_ip=ip, building=Building.objects.get(id=active_building))
+            rating.save()
 
-        response_data['result'] = 'Post Rating successful!'
-        response_data['postpk'] = rating.pk
-        response_data['rate'] = rating.rate
-        response_data['created'] = rating.created.strftime('%B %d, %Y %I:%M %p')
+            response_data['result'] = 'Post Rating successful!'
+            response_data['postpk'] = rating.pk
+            response_data['rate'] = rating.rate
+            response_data['created'] = rating.created.strftime('%B %d, %Y %I:%M %p')
 
-        return HttpResponse(
+            return HttpResponse(
             json.dumps(response_data),
+            content_type="application/json"
+            )
+        else:
+            return HttpResponse(
+            json.dumps({"POST RATING ERROR ": "A rating has already been posted for this IP"}),
             content_type="application/json"
         )
     else:
         return HttpResponse(
-            json.dumps({"nothing to see": "this isn't happening"}),
+            json.dumps({"POST RATING ERROR": "Request is not post"}),
             content_type="application/json"
         )
-
 
 
 

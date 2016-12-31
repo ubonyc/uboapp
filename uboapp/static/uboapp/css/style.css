@@ -74,6 +74,7 @@
          overflow:scroll;
          display : none;
          visibility : hidden;
+         height: 96.5%;
          }
 
 
@@ -91,6 +92,12 @@
          padding-bottom :5px;
          padding-left : 2px;
          background-color : white;
+         }
+
+         #hidden_div
+         {
+         display : none;
+         visibility : hidden;
          }
 
          .rating_section
@@ -158,7 +165,7 @@
          position : relative;
          float : right;
          width: 71.5%;
-         height: 97%;
+         height: 96.5%;
          }
 
 
@@ -194,7 +201,7 @@
         .row { display: table-row; height:18px; margin: 0px; padding:0px; vertical-align: middle;}
         .cell { display: table-cell; height:18px; margin: 0px; padding:0px; vertical-align: middle; }
 
-        .rating_bar {background-color:#eb6e01; height : 14px; width:100%}
+        .rating_bar {background-color:#eb6e01; height : 10px; width:100%}
 
 
         h5, h3
