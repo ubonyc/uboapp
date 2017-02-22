@@ -45,7 +45,7 @@ function post_rating() {
     }
     });
     //console.log("post_rating : ajax setup completed"); // sanity check
-    //console.log("post_rating : post-rate : " + $(":input[name=rateradio]:checked").val()); // sanity check
+    console.log("post_rating : post-rate : " + $(":input[name=rateradio]:checked").val()); // sanity check
 
     $.ajax({
         url : "post_rating/", // the endpoint
@@ -59,11 +59,28 @@ function post_rating() {
         // handle a successful response
         success : function(json) {
             $('#post_rate').val(''); // remove the value from the input
+
+            if (json.result = 'IP already rated'){
+            console.log('1');
+            console.log(json.result);
+            console.log(json); // log the returned json to the console
+            }
+            else
+            {
+            console.log('2');
+            console.log(json); // log the returned json to the console
+            console.log("TRANSITION");
+            get_building(activebuilding);
+            }
+
+            /*
             console.log(json); // log the returned json to the console
 
             //console.log("post_rating : success"); // another sanity check
             console.log("TRANSITION");
             get_building(activebuilding);
+
+            */
         },
 
         // handle a non-successful response
@@ -74,6 +91,8 @@ function post_rating() {
         }
     });
 };
+
+
 
 
 
@@ -103,8 +122,13 @@ function create_post() {
         // handle a successful response
         success : function(json) {
             $('#post-text').val(''); // remove the value from the input
+            if (json.POST_RATING_STATUS = 'A rating has already been posted for this IP'){
             console.log(json); // log the returned json to the console
-            console.log("success"); // another sanity check
+            }
+            else
+            {
+            console.log(json); // log the returned json to the console
+            }
         },
 
         // handle a non-successful response
@@ -115,6 +139,8 @@ function create_post() {
         }
     });
 };
+
+
 
 
 // AJAX for getting
@@ -201,9 +227,7 @@ function get_building(building_id) {
                     "<p>AREA : " + parseFloat(json.area).toLocaleString() + " SQFT</p>" +
                     "<p>LOT SIZE : " + parseFloat(json.lotsize).toLocaleString() + " SQFT</p>" +
                     "<p>MARKET VALUE : $" + parseFloat(json.marketvalue).toLocaleString() + "</p>";
-
         },
-
 
         // handle a non-successful response
         error : function(xhr,errmsg,err) {
@@ -243,6 +267,21 @@ function get_building(building_id) {
         //modalcontent = "yes papa";
 
                 $("#details").html(modalcontent);
+                $("#details").dialog(
+                    {width: modalwidth},
+                    {height: modalheight}
+                );
+    };
+
+    	function modal(message){
+
+        console.log('Modal / content : ' + message);
+
+        var modalheight = 380;
+        var modalwidth = 250;
+        //modalcontent = "yes papa";
+
+                $("#details").html(message);
                 $("#details").dialog(
                     {width: modalwidth},
                     {height: modalheight}
